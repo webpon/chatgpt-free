@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { NConfigProvider } from 'naive-ui'
+import { NCard, NConfigProvider, NDivider, NModal } from 'naive-ui'
+import { ref } from 'vue'
 import { NaiveProvider } from '@/components/common'
 import { useTheme } from '@/hooks/useTheme'
 import { useLanguage } from '@/hooks/useLanguage'
 
 const { theme, themeOverrides } = useTheme()
 const { language } = useLanguage()
+const announcementModal = ref(true)
 </script>
 
 <template>
@@ -19,4 +21,38 @@ const { language } = useLanguage()
       <RouterView />
     </NaiveProvider>
   </NConfigProvider>
+  <NModal v-model:show="announcementModal">
+    <NCard
+      style="width: 600px" title="公告栏" closable :bordered="false" size="huge" role="dialog" aria-modal="true"
+      @close="announcementModal = false"
+    >
+      <div class="text-center flex items-center flex-col">
+        <template v-if="true">
+          <!-- <h3 class="text-red-400 text-xl my-1 font-bold">
+          服务已恢复，为了弥补用户，今天最低价月卡仅12.8元，3天卡仅6.8元 <n-button type="primary" size="small" @click="showUserInfo">立刻购买</n-button>
+            <br>
+          </h3> -->
+          <!-- <n-divider class="!my-1"/> -->
+
+          <h3 class="text-orange-400 text-3xl my-1 font-bold">
+            <span class="text-red-400">本网站完全免费!</span><br>
+          </h3>
+          <h3 class="leading-8 text-xl">
+            <span class="flex items-center">
+              本站点仅供学习交流使用，不良言论将会被记录，请大家合理使用，谢谢🙏！
+            </span>
+          </h3>
+        </template>
+        <NDivider class="!my-1" />
+        <h3 class="text-xl leading-8">
+          站长推荐<span class="text-red-500">(广告)</span>：<br>
+          本站点同款<span class="text-red-500">服务器</span>，性价比超高，仅10元一个月，送免费域名、ssl证书<br>
+          <a
+            href="https://www.rainyun.com/webpon_" class="text-blue-500 underline"
+            target="_blank"
+          >https://www.rainyun.com/webpon</a>
+        </h3>
+      </div>
+    </NCard>
+  </NModal>
 </template>
