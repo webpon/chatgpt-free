@@ -105,15 +105,27 @@ async function chatReplyProcess(options: RequestOptions) {
       else
         options = { ...lastContext }
     }
-
-    const response = await api.sendMessage(message, {
-      ...options,
-      onProgress: (partialResponse) => {
-        process?.(partialResponse)
-      },
-    })
-
-    return sendResponse({ type: 'Success', data: response })
+    let retryCount = 3
+    for (let i = 0; i < retryCount; i++) {
+      try {
+         const response = await api.sendMessage(message, {
+              ...options,
+              onProgress: (partialResponse) => {
+                process?.(partialResponse)
+              },
+            })
+         if (i > 0)
+              console.log(`失败重试第${i}次成功了`)
+            return
+        return sendResponse({ type: 'Success', data: response })
+      }
+      catch (error) {
+        console.error('失败重试', error.message)
+        if (i === retryCount - 1)
+          throw new Error(`Failed to fetch chat after ${retryCount} retry attempts`)
+        await new Promise(resolve => setTimeout(resolve, 1000))
+      }
+    }
   }
   catch (error: any) {
     const code = error.statusCode
