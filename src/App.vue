@@ -35,11 +35,11 @@ const announcementModal = ref(true)
           <!-- <n-divider class="!my-1"/> -->
 
           <h3 class="text-orange-400 text-3xl my-1 font-bold">
-            <span class="text-red-400">本网站完全免费!</span><br>
+            <span class="text-red-500">本网站完全免费!</span><br>
           </h3>
           <h3 class="leading-8 text-xl">
             <span class="flex items-center text-purple-500">
-              请不要使用梯子🪜魔法上网，不然回答有可能卡住！
+              请<span class="text-red-500">不要使用梯子🪜魔法上网</span>，不然回答有可能卡住！
             </span>
           </h3>
         </template>
