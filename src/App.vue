@@ -39,7 +39,7 @@ const announcementModal = ref(true)
           </h3>
           <h3 class="leading-8 text-xl">
             <span class="flex items-center">
-              本站点仅供学习交流使用，不良言论将会被记录，请大家合理使用，谢谢🙏！
+                请不要使用梯子🪜魔法上网，不然回答有可能卡住！
             </span>
           </h3>
         </template>
