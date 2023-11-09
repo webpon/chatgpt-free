@@ -21,19 +21,13 @@ const announcementModal = ref(true)
       <RouterView />
     </NaiveProvider>
   </NConfigProvider>
-  <NModal v-model:show="announcementModal">
+  <!-- <NModal v-model:show="announcementModal">
     <NCard
       style="width: 600px" title="公告栏" closable :bordered="false" size="huge" role="dialog" aria-modal="true"
       @close="announcementModal = false"
     >
       <div class="text-center flex items-center flex-col">
         <template v-if="true">
-          <!-- <h3 class="text-red-400 text-xl my-1 font-bold">
-          服务已恢复，为了弥补用户，今天最低价月卡仅12.8元，3天卡仅6.8元 <n-button type="primary" size="small" @click="showUserInfo">立刻购买</n-button>
-            <br>
-          </h3> -->
-          <!-- <n-divider class="!my-1"/> -->
-
           <h3 class="text-orange-400 text-3xl my-1 font-bold">
             <span class="text-red-500">本网站完全免费!</span><br>
           </h3>
@@ -54,5 +48,5 @@ const announcementModal = ref(true)
         </h3>
       </div>
     </NCard>
-  </NModal>
+  </NModal> -->
 </template>

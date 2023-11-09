@@ -3,7 +3,7 @@ import type { Ref } from 'vue'
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
-import { NAutoComplete, NButton, NInput, useDialog, useMessage } from 'naive-ui'
+import { NAutoComplete, NButton, NInput, useDialog, useMessage, NCard, NDivider } from 'naive-ui'
 import html2canvas from 'html2canvas'
 import { Message } from './components'
 import { useScroll } from './hooks/useScroll'
@@ -465,38 +465,43 @@ onUnmounted(() => {
 
 <template>
   <div class="flex flex-col w-full h-full">
-    <HeaderComponent
-      v-if="isMobile"
-      :using-context="usingContext"
-      @export="handleExport"
-      @handle-clear="handleClear"
-    />
+    <HeaderComponent v-if="isMobile" :using-context="usingContext" @export="handleExport" @handle-clear="handleClear" />
     <main class="flex-1 overflow-hidden">
       <div id="scrollRef" ref="scrollRef" class="h-full overflow-hidden overflow-y-auto">
-        <div
-          id="image-wrapper"
-          class="w-full max-w-screen-xl m-auto dark:bg-[#101014]"
-          :class="[isMobile ? 'p-2' : 'p-4']"
-        >
+        <div id="image-wrapper" class="w-full max-w-screen-xl m-auto dark:bg-[#101014]"
+          :class="[isMobile ? 'p-2' : 'p-4']">
           <template v-if="!dataSources.length">
             <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
-              <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
-              <span>Aha~</span>
+              <!-- <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
+              <span>Aha~</span> -->
+              <NCard style="width: 100%" :bordered="false" size="huge" role="dialog"
+                aria-modal="true">
+                <div class="text-center flex items-center flex-col">
+                    <h3 class="text-orange-400 text-3xl my-1 font-bold">
+                      <span class="text-red-500">本网站完全免费!</span><br>
+                    </h3>
+                    <h3 class="leading-8 text-xl">
+                      <span class="text-purple-500">
+                        请<span class="text-red-500">不要使用梯子🪜魔法上网</span>，不然回答有可能卡住！
+                      </span>
+                    </h3>
+                    <span class="leading-8 text-base">此版本为免费体验版，高级版本请访问：<a class="underline text-blue-500" href="https://p1.xjai.pro">https://p1.xjai.pro</a></span><br>
+                  <NDivider class="!my-1" />
+                  <h3 class="text-xl leading-8">
+                    站长推荐<span class="text-red-500">(广告)</span>：<br>
+                    本站点同款<span class="text-red-500">服务器</span>，性价比超高，仅10元一个月，送免费域名、ssl证书<br>
+                    <a href="https://www.rainyun.com/webpon_" class="text-blue-500 underline"
+                      target="_blank">https://www.rainyun.com/webpon</a>
+                  </h3>
+                </div>
+              </NCard>
             </div>
           </template>
           <template v-else>
             <div>
-              <Message
-                v-for="(item, index) of dataSources"
-                :key="index"
-                :date-time="item.dateTime"
-                :text="item.text"
-                :inversion="item.inversion"
-                :error="item.error"
-                :loading="item.loading"
-                @regenerate="onRegenerate(index)"
-                @delete="handleDelete(index)"
-              />
+              <Message v-for="(item, index) of dataSources" :key="index" :date-time="item.dateTime" :text="item.text"
+                :inversion="item.inversion" :error="item.error" :loading="item.loading" @regenerate="onRegenerate(index)"
+                @delete="handleDelete(index)" />
               <div class="sticky bottom-0 left-0 flex justify-center">
                 <NButton v-if="loading" type="warning" @click="handleStop">
                   <template #icon>
@@ -530,17 +535,9 @@ onUnmounted(() => {
           </HoverButton>
           <NAutoComplete v-model:value="prompt" :options="searchOptions" :render-label="renderOption">
             <template #default="{ handleInput, handleBlur, handleFocus }">
-              <NInput
-                ref="inputRef"
-                v-model:value="prompt"
-                type="textarea"
-                :placeholder="placeholder"
-                :autosize="{ minRows: 1, maxRows: isMobile ? 4 : 8 }"
-                @input="handleInput"
-                @focus="handleFocus"
-                @blur="handleBlur"
-                @keypress="handleEnter"
-              />
+              <NInput ref="inputRef" v-model:value="prompt" type="textarea" :placeholder="placeholder"
+                :autosize="{ minRows: 1, maxRows: isMobile ? 4 : 8 }" @input="handleInput" @focus="handleFocus"
+                @blur="handleBlur" @keypress="handleEnter" />
             </template>
           </NAutoComplete>
           <NButton type="primary" :disabled="buttonDisabled" @click="handleSubmit">
