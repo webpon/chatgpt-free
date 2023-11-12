@@ -486,6 +486,12 @@ onUnmounted(() => {
                       </span>
                     </h3><br>
                     <span class="leading-10 text-xl text-red-500 font-bold">收藏导航页不迷路：<a class="underline text-blue-500" href="https://a.x-code.fun">https://a.x-code.fun</a></span><br>
+                    <h3 class="leading-8 text-xl">
+                      <span class="">
+                        本人在做的AI项目：openAI api转发、ChatGPT商业镜像站搭建、GPT账号批发、网页程序制作。有需要欢迎合作共赢。
+                      </span>
+                      <p>微信：ABD3378972756abd  QQ: 3488701425</p>
+                    </h3><br>
                     <!-- <span class="text-base">此版本为免费体验版，高级高级版本请访问：<a class="underline text-blue-500" href="https://p1.xjai.pro">https://p1.xjai.pro</a></span><br> -->
                   <NDivider class="!my-1" />
                   <h3 class="text-xl leading-8">
