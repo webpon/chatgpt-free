@@ -486,7 +486,7 @@ onUnmounted(() => {
                       </span>
                     </h3><br>
                     <span class="leading-10 text-xl text-red-500 font-bold">收藏导航页不迷路：<a class="underline text-blue-500" href="https://a.x-code.fun">https://a.x-code.fun</a></span><br>
-                    <span class="text-base">此版本为免费体验版，高级高级版本请访问：<a class="underline text-blue-500" href="https://p1.xjai.pro">https://p1.xjai.pro</a></span><br>
+                    <!-- <span class="text-base">此版本为免费体验版，高级高级版本请访问：<a class="underline text-blue-500" href="https://p1.xjai.pro">https://p1.xjai.pro</a></span><br> -->
                   <NDivider class="!my-1" />
                   <h3 class="text-xl leading-8">
                     站长推荐<span class="text-red-500">(广告)</span>：<br>
