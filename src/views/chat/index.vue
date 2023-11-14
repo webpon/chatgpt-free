@@ -492,9 +492,10 @@ onUnmounted(() => {
                   <span class="leading-10 text-xl text-red-500 font-bold">收藏导航页不迷路：<a class="underline text-blue-500" href="https://a.x-code.fun">https://a.x-code.fun</a></span><br>
                   <h3 class="leading-8 text-xl">
                     <span class="">
-                        <li>出5000刀、10000刀额度4.0api账号转组织
-                        出5刀普号。</li>
-                        <li>收120/600刀号或者用完额度的账单号。</li>
+                      <li>出5000刀、10000刀额度4.0api账号转组织
+                      </li>
+                      <li>出5刀普号</li>
+                      <li>收120/600刀号用完额度的账单号</li>
                     </span>
                     <p>微信：ABD3378972756abd</p>
                   </h3><br>
