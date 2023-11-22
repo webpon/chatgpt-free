@@ -50,7 +50,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     res.write(JSON.stringify(error))
   }
   finally {
-    res.end('8888')
+    res.end()
   }
 })
 
