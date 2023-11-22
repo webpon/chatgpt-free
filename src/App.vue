@@ -21,7 +21,7 @@ const announcementModal = ref(true)
       <RouterView />
     </NaiveProvider>
   </NConfigProvider>
-  <!-- <NModal v-model:show="announcementModal">
+  <NModal v-model:show="announcementModal">
     <NCard
       style="width: 600px" title="公告栏" closable :bordered="false" size="huge" role="dialog" aria-modal="true"
       @close="announcementModal = false"
@@ -48,5 +48,5 @@ const announcementModal = ref(true)
         </h3>
       </div>
     </NCard>
-  </NModal> -->
+  </NModal>
 </template>
