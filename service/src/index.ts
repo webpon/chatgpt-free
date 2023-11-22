@@ -31,6 +31,8 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
       message: prompt,
       lastContext: options,
       process: (chat: ChatMessage) => {
+        console.log(chat.detail.choices[0].finish_reason)
+        console.log(randomTrueWithProbability(0.2))
         if (chat.detail.choices[0].finish_reason === 'stop') {
           if (randomTrueWithProbability(0.2)) {
             const tips = `\n_______________________\n 服务器昂贵,接口昂贵,但网站免费！！如果你觉得做的好，可以给我买一瓶冰阔落
