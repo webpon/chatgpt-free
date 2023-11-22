@@ -12,7 +12,7 @@ import { useUsingContext } from './hooks/useUsingContext'
 import HeaderComponent from './components/Header/index.vue'
 import { HoverButton, SvgIcon } from '@/components/common'
 import { useBasicLayout } from '@/hooks/useBasicLayout'
-import { useChatStore, usePromptStore } from '@/store'
+import { useChatStore, useKeyStore, usePromptStore } from '@/store'
 import { fetchChatAPIProcess } from '@/api'
 import { t } from '@/locales'
 
@@ -25,6 +25,7 @@ const dialog = useDialog()
 const ms = useMessage()
 
 const chatStore = useChatStore()
+const keyStore = useKeyStore()
 
 const { isMobile } = useBasicLayout()
 const { addChat, updateChat, updateChatSome, getChatByUuidAndIndex } = useChat()
@@ -85,7 +86,6 @@ async function onConversation() {
 
   let options: Chat.ConversationRequest = {}
   const lastContext = conversationList.value[conversationList.value.length - 1]?.conversationOptions
-
   if (lastContext && usingContext.value)
     options = { ...lastContext }
 
@@ -93,7 +93,7 @@ async function onConversation() {
     +uuid,
     {
       dateTime: new Date().toLocaleString(),
-      text: '思考中',
+      text: '',
       loading: true,
       inversion: false,
       error: false,
@@ -104,51 +104,72 @@ async function onConversation() {
   scrollToBottom()
 
   try {
-    let lastText = ''
+    // let lastText = ''
     const fetchChatAPIOnce = async () => {
       await fetchChatAPIProcess<Chat.ConversationResponse>({
         prompt: message,
         options,
+        type: keyStore.type,
         signal: controller.signal,
+        chatKey: keyStore.chatKey,
         onDownloadProgress: ({ event }) => {
           const xhr = event.target
           const { responseText } = xhr
           // Always process the final line
-          const lastIndex = responseText.lastIndexOf('\n', responseText.length - 2)
-          let chunk = responseText
-          if (lastIndex !== -1)
-            chunk = responseText.substring(lastIndex)
+          // const lastIndex = responseText.lastIndexOf('\n')
+          const arr = responseText.split('&KFw6loC9Qvy&')
+          // let chunk = responseText
+          // if (lastIndex !== -1)
+          //   chunk = responseText.substring(lastIndex)
           try {
-            const data = JSON.parse(chunk)
-            updateChat(
-              +uuid,
-              dataSources.value.length - 1,
-              {
-                dateTime: new Date().toLocaleString(),
-                text: lastText + (data.text ?? ''),
-                inversion: false,
-                error: false,
-                loading: true,
-                conversationOptions: { conversationId: data.conversationId, parentMessageId: data.id },
-                requestOptions: { prompt: message, options: { ...options } },
-              },
-            )
+            // const data = JSON.parse(chunk)
+            if (arr[0] === 'image') {
+              updateChat(
+                +uuid,
+                dataSources.value.length - 1,
+                {
+                  dateTime: new Date().toLocaleString(),
+                  text: `![Alt text](${arr[1] || ''})`,
+                  inversion: false,
+                  error: false,
+                  loading: false,
+                  conversationOptions: { conversationId: '1', parentMessageId: '1' },
+                  requestOptions: { prompt: message, options: { ...options } },
+                },
+              )
+            }
+            else {
+              const data = JSON.parse(arr[0])
+              const lastData = arr[2] && JSON.parse(arr[2])
+              updateChat(
+                +uuid,
+                dataSources.value.length - 1,
+                {
+                  dateTime: new Date().toLocaleString(),
+                  text: arr[1] || '',
+                  inversion: false,
+                  error: false,
+                  loading: false,
+                  conversationOptions: { conversationId: data.conversationId, parentMessageId: data.id },
+                  requestOptions: { prompt: message, options: { ...options } },
+                },
+              )
 
-            if (openLongReply && data.detail.choices[0].finish_reason === 'length') {
-              options.parentMessageId = data.id
-              lastText = data.text
-              message = ''
-              return fetchChatAPIOnce()
+              if (openLongReply && lastData && lastData.detail.choices[0].finish_reason === 'stop') {
+                options.parentMessageId = lastData.id
+                // lastText = data.text
+                message = ''
+                return fetchChatAPIOnce()
+              }
             }
 
-            scrollToBottomIfAtBottom()
+            scrollToBottom()
           }
           catch (error) {
             //
           }
         },
       })
-      updateChatSome(+uuid, dataSources.value.length - 1, { loading: false })
     }
 
     await fetchChatAPIOnce()
@@ -164,7 +185,7 @@ async function onConversation() {
           loading: false,
         },
       )
-      scrollToBottomIfAtBottom()
+      scrollToBottom()
       return
     }
 
@@ -175,7 +196,7 @@ async function onConversation() {
         +uuid,
         dataSources.value.length - 1,
         {
-          text: `${currentChat.text}\n[${errorMessage}]`,
+          text: `${currentChat.text}\n${errorMessage}`,
           error: false,
           loading: false,
         },
@@ -196,7 +217,7 @@ async function onConversation() {
         requestOptions: { prompt: message, options: { ...options } },
       },
     )
-    scrollToBottomIfAtBottom()
+    scrollToBottom()
   }
   finally {
     loading.value = false
@@ -230,46 +251,68 @@ async function onRegenerate(index: number) {
       error: false,
       loading: true,
       conversationOptions: null,
-      requestOptions: { prompt: message, options: { ...options } },
+      requestOptions: { prompt: message, ...options },
     },
   )
 
   try {
-    let lastText = ''
+    // let lastText = ''
     const fetchChatAPIOnce = async () => {
       await fetchChatAPIProcess<Chat.ConversationResponse>({
         prompt: message,
         options,
+        type: keyStore.type,
         signal: controller.signal,
-        onDownloadProgress: ({ event }) => {
+        chatKey: keyStore.chatKey,
+        onDownloadProgress: async ({ event }) => {
           const xhr = event.target
           const { responseText } = xhr
           // Always process the final line
-          const lastIndex = responseText.lastIndexOf('\n', responseText.length - 2)
-          let chunk = responseText
-          if (lastIndex !== -1)
-            chunk = responseText.substring(lastIndex)
+          // const lastIndex = responseText.lastIndexOf('\n')
+          // let chunk = responseText
+          // if (lastIndex !== -1)
+          //   chunk = responseText.substring(lastIndex)
+          const arr = responseText.split('&KFw6loC9Qvy&')
           try {
-            const data = JSON.parse(chunk)
-            updateChat(
-              +uuid,
-              index,
-              {
-                dateTime: new Date().toLocaleString(),
-                text: lastText + (data.text ?? ''),
-                inversion: false,
-                error: false,
-                loading: true,
-                conversationOptions: { conversationId: data.conversationId, parentMessageId: data.id },
-                requestOptions: { prompt: message, options: { ...options } },
-              },
-            )
+            if (arr[0] === 'image') {
+              updateChat(
+                +uuid,
+                dataSources.value.length - 1,
+                {
+                  dateTime: new Date().toLocaleString(),
+                  text: `![Alt text](${arr[1] || ''})`,
+                  inversion: false,
+                  error: false,
+                  loading: false,
+                  conversationOptions: { conversationId: '1', parentMessageId: '1' },
+                  requestOptions: { prompt: message, options: { ...options } },
+                },
+              )
+            }
+            else {
+              // const data = JSON.parse(chunk)
+              const data = JSON.parse(arr[0])
+              const lastData = arr[2] && JSON.parse(arr[2])
+              updateChat(
+                +uuid,
+                index,
+                {
+                  dateTime: new Date().toLocaleString(),
+                  text: arr[1] || '',
+                  inversion: false,
+                  error: false,
+                  loading: false,
+                  conversationOptions: { conversationId: data.conversationId, parentMessageId: data.id },
+                  requestOptions: { prompt: message, ...options },
+                },
+              )
 
-            if (openLongReply && data.detail.choices[0].finish_reason === 'length') {
-              options.parentMessageId = data.id
-              lastText = data.text
-              message = ''
-              return fetchChatAPIOnce()
+              if (openLongReply && lastData && lastData.detail.choices[0].finish_reason === 'stop') {
+                options.parentMessageId = lastData.id
+                // lastText = data.text
+                message = ''
+                return fetchChatAPIOnce()
+              }
             }
           }
           catch (error) {
@@ -277,7 +320,6 @@ async function onRegenerate(index: number) {
           }
         },
       })
-      updateChatSome(+uuid, index, { loading: false })
     }
     await fetchChatAPIOnce()
   }
@@ -305,7 +347,7 @@ async function onRegenerate(index: number) {
         error: true,
         loading: false,
         conversationOptions: null,
-        requestOptions: { prompt: message, options: { ...options } },
+        requestOptions: { prompt: message, ...options },
       },
     )
   }
