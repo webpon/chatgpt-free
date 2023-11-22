@@ -87,9 +87,7 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
     apiModel = 'ChatGPTUnofficialProxyAPI'
   }
 })()
-function randomTrueWithProbability(probability) {
-  return Math.random() < probability
-}
+
 async function chatReplyProcess(options: RequestOptions) {
   const { message, lastContext, process, systemMessage, temperature, top_p } = options
   try {
@@ -118,6 +116,7 @@ async function chatReplyProcess(options: RequestOptions) {
         })
         if (i > 0)
           console.log(`失败重试第${i}次成功了`)
+        return
         return sendResponse({ type: 'Success', data: response })
       }
       catch (error) {
