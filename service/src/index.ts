@@ -33,14 +33,9 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
       process: (chat: ChatMessage) => {
         console.log(chat.detail.choices[0].finish_reason)
         console.log(randomTrueWithProbability(0.2))
-        if (chat.detail.choices[0].finish_reason === 'stop') {
-          if (randomTrueWithProbability(0.2)) {
-            const tips = `\n_______________________\n 服务器昂贵,接口昂贵,但网站免费！！如果你觉得做的好，可以给我买一瓶冰阔落
-              ![赞赏码](https://file.xjai.top/uploads/2023-11-22-1700641947344-56063092-image.png)\n
-              `
-            res.write(tips)
-          }
-        }
+        // if (chat.detail.choices[0].finish_reason === 'stop') {
+         
+        // }
         else {
           res.write(firstChunk ? JSON.stringify(chat) : `\n${JSON.stringify(chat)}`)
           firstChunk = false
@@ -55,7 +50,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     res.write(JSON.stringify(error))
   }
   finally {
-    res.end()
+    res.end('8888')
   }
 })
 
