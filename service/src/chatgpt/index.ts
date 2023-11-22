@@ -116,15 +116,8 @@ async function chatReplyProcess(options: RequestOptions) {
             process?.(partialResponse)
           },
         })
-        if (randomTrueWithProbability(0.2)) {
-          const tips = `\n_______________________\n 服务器昂贵,接口昂贵,但网站免费！！如果你觉得做的好，可以给我买一瓶冰阔落
-                ![赞赏码](https://file.xjai.top/uploads/2023-11-22-1700641947344-56063092-image.png)\n
-                `
-          res.write(tips)
-        }
         if (i > 0)
           console.log(`失败重试第${i}次成功了`)
-        return
         return sendResponse({ type: 'Success', data: response })
       }
       catch (error) {
