@@ -38,14 +38,13 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
       temperature,
       top_p,
     })
+    if (randomTrueWithProbability(0.2))
+      res.write('\n ![赞赏码](https://file.xjai.top/uploads/2023-11-22-1700641947344-56063092-image.png)')
   }
   catch (error) {
     res.write(JSON.stringify(error))
   }
   finally {
-    if (randomTrueWithProbability(0.2))
-      res.write('\n ![赞赏码](https://file.xjai.top/uploads/2023-11-22-1700641947344-56063092-image.png)')
-
     res.end()
   }
 })
