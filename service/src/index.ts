@@ -35,9 +35,10 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
       length: 1,
     }
     // requests[key] = requests[key].filter(timestamp => timestamp > (currentTimestamp - windowMs))
-    if (requests[key].length % 5 === 0) {
+    if (requests[key].length % 4 === 0) {
       tips = `\n_______________________\n 服务器昂贵,接口昂贵,但网站免费！！如果你觉得做的好，可以给我买一瓶冰阔落
           ![赞赏码](https://file.xjai.top/uploads/2023-11-22-1700641947344-56063092-image.png)\n
+          国内稳定高级版本(广告)：[ChatAI 中文版](https://srv.aiflarepro.com/#/?cid=4111)
           `
     }
     requests[key].length += 1
