@@ -33,7 +33,7 @@ const announcementModal = ref(true)
           </h3>
           <h3 class="leading-8 text-xl">
             <span class="flex items-center text-purple-500">
-              请<span class="text-red-500">不要使用梯子🪜魔法上网</span>，不然回答有可能卡住！
+              请<span class="text-red-500">不要使用梯子魔法上网</span>，不然回答有可能卡住！
             </span>
           </h3>
         </template>
