@@ -36,6 +36,8 @@ const announcementModal = ref(true)
               请<span class="text-red-500">不要使用梯子魔法上网</span>，不然回答有可能卡住！
             </span>
           </h3>
+          <span class="leading-10 text-xl text-red-500 font-bold">请务必收藏导航页：<a class="underline text-blue-500" href="http://a.x-code.fun">https://a.x-code.fun</a></span><br>
+
         </template>
         <NDivider class="!my-1" />
         <h3 class="text-xl leading-8">
