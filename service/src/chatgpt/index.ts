@@ -109,7 +109,7 @@ async function chatReplyProcess(options: RequestOptions) {
       else
         options = { ...lastContext }
     }
-    const retryCount = 3
+    const retryCount = 6
     for (let i = 0; i < retryCount; i++) {
       try {
         console.log(options);
@@ -129,7 +129,7 @@ async function chatReplyProcess(options: RequestOptions) {
         console.error('失败重试', error.message)
         if (i === retryCount - 1)
           throw new Error(`Failed to fetch chat after ${retryCount} retry attempts`)
-        await new Promise(resolve => setTimeout(resolve, 100))
+        await new Promise(resolve => setTimeout(resolve, 10))
       }
     }
   }
