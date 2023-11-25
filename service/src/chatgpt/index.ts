@@ -80,7 +80,7 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
       model,
       debug: !disableDebug,
     }
-
+    console.log(options)
     setupProxy(options)
 
     api = new ChatGPTUnofficialProxyAPI({ ...options })
@@ -108,6 +108,8 @@ async function chatReplyProcess(options: RequestOptions) {
     const retryCount = 3
     for (let i = 0; i < retryCount; i++) {
       try {
+        console.log(options);
+        
         const response = await api.sendMessage(message, {
           ...options,
           onProgress: (partialResponse) => {
