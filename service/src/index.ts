@@ -37,7 +37,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     // requests[key] = requests[key].filter(timestamp => timestamp > (currentTimestamp - windowMs))
     if (requests[key].length % 4 === 0) {
       tips = `\n_______________________\n
-**目前模型已升级为GPT4, 免费无限制使用！**
+**目前模型已升级为GPT4-Turbo, 数据更新到2023年4月，免费无限制使用！**
 服务器昂贵,接口昂贵,但网站免费！！如果你觉得做的好，可以给我买一瓶冰阔落
       ![赞赏码](https://file.xjai.top/uploads/2023-11-22-1700641947344-56063092-image.png)
       
