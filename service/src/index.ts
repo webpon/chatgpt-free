@@ -47,7 +47,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
       tips = `\n_______________________\n
 **目前模型已升级为GPT4, 免费无限制使用！**
 * 防止迷路，请务必收藏导航页：[永久导航页](http://a.x-code.fun)
-* GPT使用教程：[高效使用教程](https://www.bilibili.com/video/BV1oe411f7JV/?buvid=ZC4CACCE9C6E3D6A475D90B6CEC80E6CD9E1&is_story_h5=false&mid=ee4u3sMrpW3Kr04YfNRzvg%3D%3D&p=1&plat_id=114&share_from=ugc&share_medium=ipad&share_plat=ios&share_source=COPY&share_tag=s_i&timestamp=1700924782&unique_k=IbrTYhn&up_id=353491847&vd_source=688bc9de2578d5ae007f95541aa18589)
+* GPT使用教程：[高效使用教程](https://www.bilibili.com/video/BV1oe411f7JV/?buvid=ZC4CACCE9C6E3D6A475D90B6CEC80E6CD9E1&is_story_h5=false&mid=ee4u3sMrpW3Kr04YfNRzvg%3D%3D&p=1&plat_id=114&share_from=ugc&share_medium=ipad&share_plat=ios&share_source=COPY&share_tag=s_i&timestamp=1700924782&unique_k=IbrTYhn&up_id=353491847&share_source=weixin)
       `
     }
     requests[key].length += 1
