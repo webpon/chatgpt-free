@@ -57,16 +57,16 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
         options.maxModelTokens = 8192
         options.maxResponseTokens = 2048
       }
+      if (model.toLowerCase().includes('preview')) {
+        options.maxModelTokens = 98304
+        options.maxResponseTokens = 4096
+    }
     }
     else if (model.toLowerCase().includes('gpt-3.5')) {
       if (model.toLowerCase().includes('16k')) {
         options.maxModelTokens = 16384
         options.maxResponseTokens = 4096
       }
-    }
-    else if (model.toLowerCase().includes('preview')) {
-        options.maxModelTokens = 98304
-        options.maxResponseTokens = 4096
     }
 
     if (isNotEmptyString(OPENAI_API_BASE_URL))
