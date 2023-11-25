@@ -129,7 +129,7 @@ async function chatReplyProcess(options: RequestOptions) {
         console.error('失败重试', error.message)
         if (i === retryCount - 1)
           throw new Error(`Failed to fetch chat after ${retryCount} retry attempts`)
-        await new Promise(resolve => setTimeout(resolve, 1000))
+        await new Promise(resolve => setTimeout(resolve, 100))
       }
     }
   }
