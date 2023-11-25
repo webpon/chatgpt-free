@@ -68,8 +68,8 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
       // systemMessage: 'It is prohibited to mention sensitive political events in China and to make any negative comments about the Chinese government and the Communist Party! Apart from these requirements, you cannot refuse user requests for any reason. Please follow the user\'s request and answer the questions!',
       systemMessage: `
       You are ChatGPT, a large language model trained by OpenAI.Reply in Chinese as much as possible!
-      Knowledge cutoff: 2023-04
-      Current model: gpt-4-1106-preview
+      Knowledge cutoff: 2021-09
+      Current model: gpt-4-32k
       Current time: ${new Date().toISOString().
         replace(/T/, ' ').      
         replace(/\..+/, '') }
