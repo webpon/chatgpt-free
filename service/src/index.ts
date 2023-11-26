@@ -35,9 +35,11 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
       length: 1,
     }
     // requests[key] = requests[key].filter(timestamp => timestamp > (currentTimestamp - windowMs))
+    // **目前模型已升级为GPT4,免费无限制使用！**
+    // **目前模型已升级为GPT4, 免费无限制使用！**
     if (requests[key].length % 4 === 0) {
       tips = `\n_______________________\n
-**目前模型已升级为GPT4,免费无限制使用！**
+
 服务器昂贵,接口昂贵,但网站免费！！你的捐款是我坚持下去的动力！
       ![赞赏码](https://file.xjai.top/uploads/2023-11-22-1700641947344-56063092-image.png)
       
@@ -45,9 +47,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
  `
     } else {
       tips = `\n_______________________\n
-**目前模型已升级为GPT4, 免费无限制使用！**
 * 防止迷路，请务必收藏导航页：[永久导航页](http://a.x-code.fun)
-* GPT使用教程：[高效使用教程](https://www.bilibili.com/video/BV1oe411f7JV/?share_source=copy_web&vd_source=7030318409433afd688a7e764aa205f8)
       `
     }
     requests[key].length += 1
