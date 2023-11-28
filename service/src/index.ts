@@ -34,14 +34,15 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     requests[key] = requests[key] || {
       length: 1,
     }
+    // * GPT4免费无限制(广告)：[gpt4](http://gnomic.x-code.fun)
     // requests[key] = requests[key].filter(timestamp => timestamp > (currentTimestamp - windowMs))
     if (requests[key].length % 4 === 0) {
       tips = `\n_______________________\n
 服务器昂贵,接口昂贵,但网站免费！！你的捐款是我坚持下去的动力！
       ![赞赏码](https://file.xjai.top/uploads/2023-11-22-1700641947344-56063092-image.png)
-* GPT4免费无限制(广告)：[gpt4](http://gnomic.x-code.fun)
 * 国内稳定高级版本1(广告)：[动点AI](https://p1.xjai.pro)
-* 国内稳定高级版本2(广告)：[ChatAI中文](https://srv.aiflarepro.com/#/?cid=4111)
+* 国内稳定高级版本2(广告)：[YAI](http://yk.x-code.fun)
+* 国内稳定高级版本3(广告)：[ChatAI中文](https://srv.aiflarepro.com/#/?cid=4111)
  `
     }
     else {
