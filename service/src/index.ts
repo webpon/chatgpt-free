@@ -40,14 +40,13 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
 服务器昂贵,接口昂贵,但网站免费！！你的捐款是我坚持下去的动力！
       ![赞赏码](https://file.xjai.top/uploads/2023-11-22-1700641947344-56063092-image.png)
 * GPT4免费无限制(广告)：[gpt4](http://gnomic.x-code.fun)
-* 国内稳定高级版本(广告)：[ChatAI中文](https://srv.aiflarepro.com/#/?cid=4111)
+* 国内稳定高级版本1(广告)：[动点AI](https://p1.xjai.pro)
+* 国内稳定高级版本2(广告)：[ChatAI中文](https://srv.aiflarepro.com/#/?cid=4111)
  `
     }
     else {
       tips = `\n_______________________\n
-* 防止迷路，请务必收藏导航页：[永久导航页](http://a.x-code.fun)
-* GPT使用教程：[高效使用教程](https://www.bilibili.com/video/BV1oe411f7JV/?share_source=copy_web&vd_source=7030318409433afd688a7e764aa205f8)
-      `
+* 防止迷路，请务必收藏导航页：[永久导航页](http://a.x-code.fun)`
     }
     requests[key].length += 1
     app.locals.requests = requests
