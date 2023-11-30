@@ -37,7 +37,6 @@ const announcementModal = ref(true)
             </span>
           </h3>
           <span class="leading-10 text-xl text-red-500 font-bold">请务必收藏导航页：<a class="underline text-blue-500" href="http://a.x-code.fun">https://a.x-code.fun</a></span><br>
-
         </template>
         <NDivider class="!my-1" />
         <h3 class="text-xl leading-8">
