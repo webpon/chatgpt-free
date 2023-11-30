@@ -40,7 +40,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
       tips = `\n_______________________\n
 服务器昂贵,接口昂贵,但网站免费！！你的捐款是我坚持下去的动力！
       ![赞赏码](https://file.xjai.top/uploads/2023-11-22-1700641947344-56063092-image.png)
-* 国内稳定高级版本1(广告)：[动点AI](https://p1.xjai.pro)
+* 国内稳定高级版本1(广告)：[动点AI](https://aigc.zijiantty.com/auth?type=register&invite=MjUx)
 * 国内稳定高级版本2(广告)：[YAI](http://yk.x-code.fun)
 * 国内稳定高级版本3(广告)：[ChatAI中文](https://srv.aiflarepro.com/#/?cid=4111)
  `
