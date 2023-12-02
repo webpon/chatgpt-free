@@ -41,9 +41,9 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
       tips = `\n_______________________\n
 支付宝放水了，支付宝扫码领红包！
       ![赞赏码](https://file.xjai.top/uploads/2023-11-30-1701363862391-31237133-5e4f8ca579fab96c5e8b0d0affc8c99.jpg)
-* 国内稳定高级版本1(广告)：[动点AI](https://p1.xjai.pro)
-* 国内稳定高级版本2(广告)：[YAI](http://yk.x-code.fun)
-* 国内稳定高级版本3(广告)：[ChatAI中文](https://srv.aiflarepro.com/#/?cid=4111)
+* 国内稳定GPT4版本1(广告)：[动点AI](https://p1.xjai.pro)
+* 国内稳定GPT4版本2(广告)：[YAI](http://yk.x-code.fun)
+* 国内稳定GPT4版本3(广告)：[ChatAI中文](https://srv.aiflarepro.com/#/?cid=4111)
  `
     }
     else {
