@@ -47,8 +47,8 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
  `
     }
     else {
-      tips = `\n_______________________\n
-* 防止迷路，请务必收藏导航页：[永久导航页](http://a.x-code.fun)`
+//       tips = `\n_______________________\n
+// * 防止迷路，请务必收藏导航页：[永久导航页](http://a.x-code.fun)`
     }
     requests[key].length += 1
     app.locals.requests = requests

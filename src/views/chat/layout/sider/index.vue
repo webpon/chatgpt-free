@@ -96,6 +96,9 @@ watch(
         <div class="flex-1 min-h-0 pb-4 overflow-hidden">
           <List />
         </div>
+        <div class="flex items-center px-4 space-x-4">
+          <span class="text-xl text-red-500 font-bold">请务必收藏导航页：<a class="underline text-blue-500" href="http://a.x-code.fun">https://a.x-code.fun</a></span><br>
+        </div>
         <div class="flex items-center p-4 space-x-4">
           <div class="flex-1">
             <NButton block @click="show = true">
