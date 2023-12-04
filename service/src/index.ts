@@ -47,8 +47,8 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
  `
     }
     else {
-//       tips = `\n_______________________\n
-// * 防止迷路，请务必收藏导航页：[永久导航页](http://a.x-code.fun)`
+      tips = `\n_______________________\n
+ * chatgpt教程：[链接](https://www.bilibili.com/video/BV1Zg4y1Z7wk/?spm_id_from=333.999.0.0&vd_source=688bc9de2578d5ae007f95541aa18589)`
     }
     requests[key].length += 1
     app.locals.requests = requests
