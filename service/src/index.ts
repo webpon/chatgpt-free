@@ -39,7 +39,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     // 支付宝放水了，支付宝扫码领红包！
       // ![赞赏码](62391-31237133-5e4f8https://file.xjai.top/uploads/2023-11-30-17013638ca579fab96c5e8b0d0affc8c99.jpg)
     // 服务器昂贵,接口昂贵,但网站免费！！你的捐款是我坚持下去的动力！
-    if (requests[key].length % 4 === 0) {
+    if (requests[key].length % 2 === 0) {
       tips = `\n_______________________\n
 * 国内免费GPT4(广告)：[免费GPT4](http://gnomic.x-code.fun)
 * 国内稳定GPT4版本(广告)：[ChatAI中文](https://srv.aiflarepro.com/#/?cid=4111)
