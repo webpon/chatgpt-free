@@ -41,7 +41,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     // 服务器昂贵,接口昂贵,但网站免费！！你的捐款是我坚持下去的动力！
     if (requests[key].length % 2 === 0) {
       tips = `\n_______________________\n
-      ![赞赏码](https://file.xjai.top/uploads/2023-12-10-1702225292439-50015283-%C3%A5%C2%BE%C2%AE%C3%A4%C2%BF%C2%A1%C3%A5%C2%9B%C2%BE%C3%A7%C2%89%C2%87_20231211002121.jpg)
+![赞赏码](https://file.xjai.top/uploads/2023-12-10-1702225292439-50015283-%C3%A5%C2%BE%C2%AE%C3%A4%C2%BF%C2%A1%C3%A5%C2%9B%C2%BE%C3%A7%C2%89%C2%87_20231211002121.jpg)
 * 国内免费GPT4(广告)：[免费GPT4](http://gnomic.x-code.fun)
 * 国内稳定GPT4版本(广告)：[ChatAI中文](https://srv.aiflarepro.com/#/?cid=4111)
  `
