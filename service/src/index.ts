@@ -37,18 +37,19 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     // * GPT4免费无限制(广告)：[gpt4](http://gnomic.x-code.fun)
     // requests[key] = requests[key].filter(timestamp => timestamp > (currentTimestamp - windowMs))
     // 支付宝放水了，支付宝扫码领红包！
-      // ![赞赏码](62391-31237133-5e4f8https://file.xjai.top/uploads/2023-11-30-17013638ca579fab96c5e8b0d0affc8c99.jpg)
+    // ![赞赏码](62391-31237133-5e4f8https://file.xjai.top/uploads/2023-11-30-17013638ca579fab96c5e8b0d0affc8c99.jpg)
     // 服务器昂贵,接口昂贵,但网站免费！！你的捐款是我坚持下去的动力！
     if (requests[key].length % 2 === 0) {
       tips = `\n_______________________\n
+服务器昂贵,接口昂贵,但网站免费！！您的捐款是我坚持下去的动力！
 ![赞赏码](https://file.xjai.top/uploads/2023-12-10-1702225292439-50015283-%C3%A5%C2%BE%C2%AE%C3%A4%C2%BF%C2%A1%C3%A5%C2%9B%C2%BE%C3%A7%C2%89%C2%87_20231211002121.jpg)
 * 国内免费GPT4(广告)：[免费GPT4](http://gnomic.x-code.fun)
 * 国内稳定GPT4版本(广告)：[ChatAI中文](https://srv.aiflarepro.com/#/?cid=4111)
  `
     }
     else {
-//       tips = `\n_______________________\n
-//  * chatgpt教程：[链接](https://www.bilibili.com/video/BV1Zg4y1Z7wk/?spm_id_from=333.999.0.0&vd_source=688bc9de2578d5ae007f95541aa18589)`
+      //       tips = `\n_______________________\n
+      //  * chatgpt教程：[链接](https://www.bilibili.com/video/BV1Zg4y1Z7wk/?spm_id_from=333.999.0.0&vd_source=688bc9de2578d5ae007f95541aa18589)`
     }
     requests[key].length += 1
     app.locals.requests = requests
