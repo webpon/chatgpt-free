@@ -58,7 +58,7 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
         options.maxResponseTokens = 2048
       }
       if (model.toLowerCase().includes('preview')) {
-        options.maxModelTokens = 8192
+        options.maxModelTokens = 98304
         options.maxResponseTokens = 4096
     }
     }
@@ -129,7 +129,7 @@ async function chatReplyProcess(options: RequestOptions) {
         console.error('失败重试', error.message)
         if (i === retryCount - 1)
           throw new Error(`Failed to fetch chat after ${retryCount} retry attempts`)
-        await new Promise(resolve => setTimeout(resolve, 10))
+        await new Promise(resolve => setTimeout(resolve, 0))
       }
     }
   }
