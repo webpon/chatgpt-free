@@ -38,6 +38,15 @@ const asRawText = ref(props.inversion)
 
 const messageRef = ref<HTMLElement>()
 
+const preprocessMarkdown = computed(() => {
+  const markdown = (props.text || '')
+    .replace(/\\\[\s*/g, '$$')
+    .replace(/\s*\\\]/g, '$$')
+    .replace(/\\\(\s*/g, '$')
+    .replace(/\s*\\\)/g, '$')
+  return markdown
+})
+
 const options = computed(() => {
   const common = [
     {
@@ -83,7 +92,7 @@ function handleRegenerate() {
 
 async function handleCopy() {
   try {
-    await copyToClip(props.text || '')
+    await copyToClip(preprocessMarkdown.value || '')
     message.success('复制成功')
   }
   catch {
@@ -116,7 +125,7 @@ async function handleCopy() {
           ref="textRef"
           :inversion="inversion"
           :error="error"
-          :text="text"
+          :text="preprocessMarkdown"
           :loading="loading"
           :as-raw-text="asRawText"
         />
