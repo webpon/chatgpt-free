@@ -48,11 +48,11 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
 * 国内免费GPT4 二(广告)：[YMI_AI](http://yk.x-code.fun)
  `
     }
-    else {
-      tips = `\n_______________________\n
+    //     else {
+    //       tips = `\n_______________________\n
 
-* chatgpt视频教程：[点击观看](https://www.bilibili.com/video/BV1ug4y117iK/?share_source=copy_web&vd_source=7030318409433afd688a7e764aa205f8)`
-    }
+    // * chatgpt视频教程：[点击观看](https://www.bilibili.com/video/BV1ug4y117iK/?share_source=copy_web&vd_source=7030318409433afd688a7e764aa205f8)`
+    //     }
     requests[key].length += 1
     app.locals.requests = requests
     await chatReplyProcess({
