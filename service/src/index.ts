@@ -52,7 +52,9 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     }
     else {
       tips = `\n_______________________\n
-          国内免费GPT4(广告)：[百宝箱AI](https://bao.xjai.pro)`
+
+国内免费GPT4(广告)：[百宝箱AI](https://bao.xjai.pro)
+  `
     }
     requests[key].length += 1
     app.locals.requests = requests
