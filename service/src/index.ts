@@ -38,7 +38,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     // requests[key] = requests[key].filter(timestamp => timestamp > (currentTimestamp - windowMs))
     // 支付宝放水了，支付宝扫码领红包！
     // ![赞赏码](62391-31237133-5e4f8https://file.xjai.top/uploads/2023-11-30-17013638ca579fab96c5e8b0d0affc8c99.jpg)
-    // 服务器昂贵,接口昂贵,但网站免费！！你的捐款是我坚持下去的动力！
+    // 服务器昂贵,接口昂贵,但网站免费！！你的捐款是我坚持下去的动力！git
     // * 国内稳定GPT4 一(广告)：[ChatAI中文](https://srv.aiflarepro.com/#/?cid=4111)
     // * 国内免费GPT4 二(广告)：[YMI_AI](http://yk.x-code.fun)
     // if (requests[key].length % 3 === 0) {
