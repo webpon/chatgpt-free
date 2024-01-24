@@ -42,12 +42,12 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     // * 国内稳定GPT4 一(广告)：[ChatAI中文](https://srv.aiflarepro.com/#/?cid=4111)
     // * 国内免费GPT4 二(广告)：[YMI_AI](http://yk.x-code.fun)
     if (requests[key].length % 3 === 0) {
-      tips = `\n_______________________\n
-* 国内免费GPT4(广告)：[gnomic](http://gnomic.xjai.top)
-* 国内稳定GPT4 一(广告)：[ChatAI中文](https://srv.aiflarepro.com/#/?cid=4111)
-* 国内稳定GPT4 二(广告)：[百宝箱AI](https://bao.xjai.pro)
-* 国内稳定GPT4 三(广告)：[动点AI](https://p1.xjai.pro)
- `
+//       tips = `\n_______________________\n
+// * 国内免费GPT4(广告)：[gnomic](http://gnomic.xjai.top)
+// * 国内稳定GPT4 一(广告)：[ChatAI中文](https://srv.aiflarepro.com/#/?cid=4111)
+// * 国内稳定GPT4 二(广告)：[百宝箱AI](https://bao.xjai.pro)
+// * 国内稳定GPT4 三(广告)：[动点AI](https://p1.xjai.pro)
+//  `
     }
     //     else {
     //       tips = `\n_______________________\n
