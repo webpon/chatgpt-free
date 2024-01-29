@@ -533,13 +533,13 @@ onUnmounted(() => {
                   </h3><br>
                   <!-- <span class="leading-10 text-xl text-red-500 font-bold">请务必收藏导航页：<a class="underline text-blue-500" href="http://a.x-code.fun">https://a.x-code.fun</a></span><br> -->
 
-                  <h3 class="text-xl leading-8">
+                  <!-- <h3 class="text-xl leading-8">
                     高级稳定版本<span class="text-red-500">(广告)</span>
                     <a
                       href="https://srv.aiflarepro.com/#/ask_answer?cid=4111" class="text-blue-500 underline"
                       target="_blank"
                     >https://srv.aiflarepro.com/#/ask_answer?cid=4111</a>
-                  </h3>
+                  </h3> -->
                   <!-- <span class="text-base">此版本为免费体验版，高级高级版本请访问：<a class="underline text-blue-500" href="https://p1.xjai.pro">https://p1.xjai.pro</a></span><br> -->
                   <NDivider class="!my-1" />
                   <h3 class="text-xl leading-8">
