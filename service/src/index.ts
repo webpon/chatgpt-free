@@ -43,7 +43,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     // * 国内免费GPT4 二(广告)：[YMI_AI](http://yk.x-code.fun)
     if (requests[key].length % 2 === 0) {
       tips = `\n_______________________\n
-      * 收藏导航页不迷路：[https://nav.xjai.top](https://nav.xjai.top)
+      收藏导航页不迷路：[https://nav.xjai.top](https://nav.xjai.top)
       `
     }
     //     else {
