@@ -29,13 +29,14 @@ const announcementModal = ref(true)
       <div class="text-center flex items-center flex-col">
         <template v-if="true">
           <h3 class="text-orange-400 text-3xl my-1 font-bold">
-            <span class="text-red-500">本网站永久免费!</span><br>
+            <!-- <span class="text-red-500">本网站永久免费!</span><br> -->
+            <span class="text-red-500">免费无限使用GPT4</span><br>
           </h3>
-          <h3 class="leading-8 text-xl">
+          <!-- <h3 class="leading-8 text-xl">
             <span class="text-purple-500">
               请<span class="text-red-500">不要使用梯子魔法上网</span>，不然回答有可能卡住！
             </span>
-          </h3>
+          </h3> -->
         </template>
         <NDivider class="!my-1" />
         <h3 class="text-xl leading-8">
