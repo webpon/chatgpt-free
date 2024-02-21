@@ -58,9 +58,9 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
         options.maxResponseTokens = 2048
       }
       if (model.toLowerCase().includes('preview')) {
-        options.maxModelTokens = 131072
+        options.maxModelTokens = 16384
         options.maxResponseTokens = 4096
-    }
+      }
     }
     else if (model.toLowerCase().includes('gpt-3.5')) {
       if (model.toLowerCase().includes('16k')) {
@@ -112,8 +112,8 @@ async function chatReplyProcess(options: RequestOptions) {
     const retryCount = 6
     for (let i = 0; i < retryCount; i++) {
       try {
-        console.log(options);
-        
+        console.log(options)
+
         const response = await api.sendMessage(message, {
           ...options,
           onProgress: (partialResponse) => {
