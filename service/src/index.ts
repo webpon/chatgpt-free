@@ -41,12 +41,12 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     // 服务器昂贵,接口昂贵,但网站免费！！你的捐款是我坚持下去的动力！git
     // * 国内稳定GPT4 一(广告)：[ChatAI中文](https://srv.aiflarepro.com/#/?cid=4111)
     // * 国内免费GPT4 二(广告)：[YMI_AI](http://yk.x-code.fun)
-    // if (requests[key].length % 2 === 0) {
-    tips = `\n_______________________\n
+    if (requests[key].length % 2 === 0) {
+      tips = `\n_______________________\n
 今天GPT4额度已经用完了，已临时切换到3.5，明天再切换4.0，敬请理解，若需要使用4.0请前往：[https://nav.xjai.top](https://nav.xjai.top)\n
 收藏导航页不迷路：[https://nav.xjai.top](https://nav.xjai.top)
       `
-    // }
+    }
     //     else {
     //       tips = `\n_______________________\n
 
