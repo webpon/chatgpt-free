@@ -96,14 +96,14 @@ watch(
         <div class="flex-1 min-h-0 pb-4 overflow-hidden">
           <List />
         </div>
-        <div class="flex flex-col justify-center py-2 px-4 jusi space-x-4">
-          <p class="text-xl">
+        <div class="flex flex-col items-center py-2 px-4 jusi space-x-4">
+          <p class="text-xl font-bold my-2">
             加入QQ群
           </p>
-          <img src="https://file.xjai.top/uploads/2024-02-22-1708580090153-41648759-image.png" class="w-[120px]" style="margin: 0">
+          <img src="https://file.xjai.top/uploads/2024-02-22-1708580090153-41648759-image.png" class="w-[130px]" style="margin: 0">
         </div>
-        <div class="flex items-center px-4 space-x-4">
-          <span class="text-xl text-red-500 font-bold">请务必收藏导航页：<a class="underline text-blue-500" href="https://nav.xjai.top">https://nav.xjai.top</a></span><br>
+        <div class="flex justify-center items-center px-4 space-x-4">
+          <span class="text-xl text-center text-red-500 font-bold">请务必收藏导航页：<a class="underline text-blue-500" href="https://nav.xjai.top">https://nav.xjai.top</a></span><br>
         </div>
         <div class="flex items-center p-4 space-x-4">
           <div class="flex-1">
