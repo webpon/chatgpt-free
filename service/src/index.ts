@@ -44,11 +44,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     if (requests[key].length % 2 === 0) {
       tips = `\n_______________________\n
 今天GPT4额度已经用完了，已临时切换到3.5，明天再切换4.0，敬请理解，若需要使用4.0请前往：[https://nav.xjai.top](https://nav.xjai.top)\n
-      `
-    }
-    else if (requests[key].length % 5 === 0) {
-      tips = `
-      网站永久免费，不死，如果无法访问请访问 [http://w8.xjai.cc](http://w8.xjai.cc)、 [http://w9.xjai.cc](http://w9.xjai.cc)、 [http://w10.xjai.cc](http://w10.xjai.cc)...以此类推
+网站永久免费，不死，如果无法访问请访问 [http://w8.xjai.cc](http://w8.xjai.cc)、 [http://w9.xjai.cc](http://w9.xjai.cc)、 [http://w10.xjai.cc](http://w10.xjai.cc)...以此类推
       `
     }
     //     else {
