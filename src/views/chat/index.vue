@@ -527,6 +527,12 @@ onUnmounted(() => {
                     <span class="text-red-500">本网站永久免费!</span><br>
                   </h3>
                   <h3 class="leading-8 text-xl">
+                    请务必收藏导航页： <a
+                      href="https://nav.xjai.top" class="text-blue-500 underline"
+                      target="_blank"
+                    >https://nav.xjai.top</a>
+                  </h3>
+                  <h3 class="leading-8 text-xl">
                     <span class="text-purple-500">
                       <!-- 请<span class="text-red-500">不要使用梯子🪜魔法上网</span>，不然回答有可能卡住！ -->
                       如果无法访问请访问: <a class="text-blue-500 underline" href="http://w9.xjai.cc">http://w9.xjai.cc</a>、<a class="text-blue-500 underline" href="http://w10.xjai.cc">http://w10.xjai.cc</a>、<a class="text-blue-500 underline" href="http://w11.xjai.cc">http://w11.xjai.cc</a>...以此类推
