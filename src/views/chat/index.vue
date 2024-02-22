@@ -529,7 +529,7 @@ onUnmounted(() => {
                   <h3 class="leading-8 text-xl">
                     <span class="text-purple-500">
                       <!-- 请<span class="text-red-500">不要使用梯子🪜魔法上网</span>，不然回答有可能卡住！ -->
-                      如果无法访问请访问: <a href="http://w9.xjai.cc">http://w9.xjai.cc</a>、<a href="http://w10.xjai.cc">http://w10.xjai.cc</a>、<a href="http://11.xjai.cc">http://w11.xjai.cc</a>...以此类推
+                      如果无法访问请访问: <a class="text-blue-500 underline" href="http://w9.xjai.cc">http://w9.xjai.cc</a>、<a class="text-blue-500 underline" href="http://w10.xjai.cc">http://w10.xjai.cc</a>、<a class="text-blue-500 underline" href="http://w11.xjai.cc">http://w11.xjai.cc</a>...以此类推
                     </span>
                   </h3><br>
                   <!-- <span class="leading-10 text-xl text-red-500 font-bold">请务必收藏导航页：<a class="underline text-blue-500" href="http://a.x-code.fun">https://a.x-code.fun</a></span><br> -->
