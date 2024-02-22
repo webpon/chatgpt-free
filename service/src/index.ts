@@ -43,7 +43,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     // * 国内免费GPT4 二(广告)：[YMI_AI](http://yk.x-code.fun)
     // if (requests[key].length % 2 === 0) {
     tips = `\n_______________________\n
-
+今天GPT4额度已经用完了，已临时切换到3.5，明天再切换4.0，敬请理解，若需要使用4.0请前往：[https://nav.xjai.top](https://nav.xjai.top)\n
 收藏导航页不迷路：[https://nav.xjai.top](https://nav.xjai.top)
       `
     // }
