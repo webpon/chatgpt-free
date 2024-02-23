@@ -43,8 +43,8 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     // * 国内免费GPT4 二(广告)：[YMI_AI](http://yk.x-code.fun)
     if (requests[key].length % 3 === 0) {
       tips = `\n_______________________\n
-今天GPT4额度已经用完了，已临时切换到3.5，明天再切换4.0，敬请理解，若需要使用4.0请前往：[https://nav.xjai.top](https://nav.xjai.top)\n
-网站永久免费，如果无法访问请访问 [http://w9.xjai.cc](http://w9.xjai.cc)、 [http://w10.xjai.cc](http://w10.xjai.cc)、 [http://w11.xjai.cc](http://w11.xjai.cc)...以此类推
+请务必收藏永久导航页：[https://nav.xjai.top](https://nav.xjai.top)\n
+网站永久免费，无法访问请访问 [http://w9.xjai.cc](http://w9.xjai.cc)、 [http://w10.xjai.cc](http://w10.xjai.cc)、 [http://w11.xjai.cc](http://w11.xjai.cc)...以此类推
       `
     }
     //     else {
