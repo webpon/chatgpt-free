@@ -43,7 +43,6 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     // * 国内免费GPT4 二(广告)：[YMI_AI](http://yk.x-code.fun)
     if (requests[key].length % 2 === 0) {
       tips = `\n_______________________\n
-请务必收藏永久导航页：[https://nav.xjai.top](https://nav.xjai.top)\n
 网站永久免费，无法访问请访问 [http://w9.xjai.cc](http://w9.xjai.cc)、 [http://w10.xjai.cc](http://w10.xjai.cc)、 [http://w11.xjai.cc](http://w11.xjai.cc)...以此类推
       `
     }
