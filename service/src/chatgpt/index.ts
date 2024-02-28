@@ -50,24 +50,25 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
     if (model.toLowerCase().includes('gpt-4')) {
       // if use 32k model
       if (model.toLowerCase().includes('32k')) {
-        options.maxModelTokens = 32768
-        options.maxResponseTokens = 8192
+        options.maxModelTokens = 28768
+        options.maxResponseTokens = 6192
       }
       else {
-        options.maxModelTokens = 8192
-        options.maxResponseTokens = 2048
+        options.maxModelTokens = 6192
+        options.maxResponseTokens = 1048
       }
       if (model.toLowerCase().includes('preview')) {
-        options.maxModelTokens = 16384
-        options.maxResponseTokens = 4096
+        options.maxModelTokens = 13384
+        options.maxResponseTokens = 3096
       }
     }
     else if (model.toLowerCase().includes('gpt-3.5')) {
       // if (model.toLowerCase().includes('16k')) {
-      options.maxModelTokens = 16384
-      options.maxResponseTokens = 4096
+      options.maxModelTokens = 13384
+      options.maxResponseTokens = 3096
       // }
     }
+
 
     if (isNotEmptyString(OPENAI_API_BASE_URL))
       options.apiBaseUrl = `${OPENAI_API_BASE_URL}/v1`
