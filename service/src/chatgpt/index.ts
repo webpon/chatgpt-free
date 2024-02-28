@@ -113,7 +113,7 @@ async function chatReplyProcess(options: RequestOptions) {
     const retryCount = 6
     for (let i = 0; i < retryCount; i++) {
       try {
-        console.log(options)
+        console.log(message)
 
         const response = await api.sendMessage(message, {
           ...options,
