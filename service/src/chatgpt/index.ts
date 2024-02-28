@@ -85,7 +85,7 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
       model,
       debug: !disableDebug,
     }
-    console.log(options)
+    // console.log(options)
     setupProxy(options)
 
     api = new ChatGPTUnofficialProxyAPI({ ...options })
