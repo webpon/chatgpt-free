@@ -10,7 +10,7 @@ const app = express()
 const router = express.Router()
 
 app.use(express.static('public'))
-app.use(express.json({limit: '10mb'}));
+app.use(express.json({ limit: '10mb' }))
 
 app.all('*', (_, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')
@@ -42,15 +42,15 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     // * 国内稳定GPT4 一(广告)：[ChatAI中文](https://srv.aiflarepro.com/#/?cid=4111)
     // * 国内免费GPT4 二(广告)：[YMI_AI](http://yk.x-code.fun)
     if (requests[key].length % 3 === 0) {
-          tips = `\n_______________________\n
+      tips = `\n_______________________\n
           // * 国内稳定GPT4 一(广告)：[薏米AI](https://ymiai.top/?channel=KY)
           // * 国内免费GPT4 二(广告)：[ChatAI](https://srv.aiflarepro.com/#/?cid=4111)
           `
-        }
-        else {
-          tips = `\n_______________________\n
+    }
+    //     else {
+    //       tips = `\n_______________________\n
 
-    // * chatgpt视频教程：[点击观看](https://www.bilibili.com/video/BV1ug4y117iK/?share_source=copy_web&vd_source=7030318409433afd688a7e764aa205f8)`
+    // // * chatgpt视频教程：[点击观看](https://www.bilibili.com/video/BV1ug4y117iK/?share_source=copy_web&vd_source=7030318409433afd688a7e764aa205f8)`
     //     }
     requests[key].length += 1
     app.locals.requests = requests
