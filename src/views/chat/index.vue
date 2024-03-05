@@ -512,27 +512,44 @@ onUnmounted(() => {
       <div id="scrollRef" ref="scrollRef" class="h-full overflow-hidden overflow-y-auto">
         <div
           id="image-wrapper" class="w-full max-w-screen-xl m-auto dark:bg-[#101014]"
-          :class="[isMobile ? 'p-2' : 'p-4']"
+          :class="[isMobile ? 'p-2' : 'p-2']"
         >
           <template v-if="!dataSources.length">
-            <div class="flex items-center justify-center mt-4 text-center text-neutral-300">
+            <div class="flex items-center justify-center text-center text-neutral-300">
               <!-- <SvgIcon icon="ri:bubble-chart-fill" class="mr-2 text-3xl" />
               <span>Aha~</span> -->
               <NCard
-                style="width: 100%" :bordered="false" size="huge" role="dialog"
+                style="width: 100%; margin-top: -20px;" :bordered="false" size="huge" role="dialog"
                 aria-modal="true"
               >
                 <div class="text-center flex items-center flex-col">
                   <h3 class="text-orange-400 text-3xl my-1 font-bold">
-                    <span class="text-red-500">本网站永久免费!</span><br>
+                    <span class="text-red-500">本网站永久免费</span><br>
                   </h3>
-                  <h3 class="leading-8 text-xl">
+                  <div><div><b style="color:red;">二维码是自愿捐赠！请确保网站您能使用，并且用了很久觉得好再捐赠！网站完全免费，就算不捐，站长也会自费运营网站！网站成本平均一人一月大概3元，只要每月捐三元 网站就能活下去</b></div>
+                    <div>PS: 所有捐赠将用于维护免费站运行</div>
+                    <div><b>收藏导航站不迷路</b>: <a target="_blank" href="https://nav.xjai.top/" style="color: #2979ff;">https://nav.xjai.top</a></div>
+                    <div>禁止发布、传播任何违法、违规内容，使用本网站，视您接受并同意<a target="_blank" style="color:#006eff;" href="https://docs.qq.com/doc/DVFdaY1lvWHFSWU5w">《免责声明》</a></div>
+                    <div style="
+                          display: flex;
+                          align-items: center;
+                          justify-content: center;
+                    ">
+                    <img class="mr-4" src="https://file.xjai.top/uploads/2023-12-10-1702225292439-50015283-%C3%A5%C2%BE%C2%AE%C3%A4%C2%BF%C2%A1%C3%A5%C2%9B%C2%BE%C3%A7%C2%89%C2%87_20231211002121.jpg" width="200" height="150" alt="kele">
+                    <img src="https://file.xjai.top/uploads/2024-03-05-1709624710051-19510611-2024-03-05-1709624594831-21220475-image.jpg" width="200" height="100" alt="kele">
+
+                    </div>
+
+
+                    <span style="display: none">https://api.binjie.fun/api/generateStream</span>
+                    </div>
+                  <!-- <h3 class="leading-8 text-xl">
                     请务必收藏导航页： <a
                       href="https://nav.xjai.top" class="text-blue-500 underline"
                       target="_blank"
                     >https://nav.xjai.top</a>
-                  </h3>
-
+                  </h3> -->
+                  
                   <!-- <span class="leading-10 text-xl text-red-500 font-bold">请务必收藏导航页：<a class="underline text-blue-500" href="http://a.x-code.fun">https://a.x-code.fun</a></span><br> -->
 
                   <!-- <h3 class="text-xl leading-8">

@@ -7,7 +7,7 @@ import { useLanguage } from '@/hooks/useLanguage'
 
 const { theme, themeOverrides } = useTheme()
 const { language } = useLanguage()
-const announcementModal = ref(true)
+const announcementModal = ref(false)
 </script>
 
 <template>
