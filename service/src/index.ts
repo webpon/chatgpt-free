@@ -43,8 +43,8 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     // * 国内免费GPT4 二(广告)：[YMI_AI](http://yk.x-code.fun)
     if (requests[key].length % 3 === 0) {
       tips = `\n_______________________\n
-          // * 国内稳定GPT4 一(广告)：[薏米AI](https://ymiai.top/?channel=KY)
-          // * 国内免费GPT4 二(广告)：[ChatAI](https://srv.aiflarepro.com/#/?cid=4111)
+* 国内稳定GPT4 一(广告)：[薏米AI](https://ymiai.top/?channel=KY)
+* 国内免费GPT4 二(广告)：[ChatAI](https://srv.aiflarepro.com/#/?cid=4111)
           `
     }
     //     else {
