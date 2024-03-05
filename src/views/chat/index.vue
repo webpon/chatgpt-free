@@ -524,7 +524,7 @@ onUnmounted(() => {
               >
                 <div class="text-center flex items-center flex-col">
                   <h3 class="text-orange-400 text-3xl my-1 font-bold">
-                    <span class="text-red-500">本网站永久免费</span><br>
+                    <span class="text-red-500 title">本网站永久免费</span><br>
                   </h3>
                   <div><div><b style="color:red;">二维码是自愿捐赠！请确保网站您能使用，并且用了很久觉得好再捐赠！网站完全免费，就算不捐，站长也会自费运营网站！网站成本平均一人一月大概3元，只要每月捐三元 网站就能活下去</b></div>
                     <div>PS: 所有捐赠将用于维护免费站运行</div>
@@ -632,3 +632,10 @@ onUnmounted(() => {
     </footer>
   </div>
 </template>
+<style lang="less" scoped>
+.title {
+  background: -webkit-linear-gradient(red, blue);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+</style>
