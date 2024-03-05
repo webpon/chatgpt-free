@@ -25,7 +25,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
   try {
     const { prompt, options = {}, systemMessage, temperature, top_p } = req.body as RequestProps
     let firstChunk = true
-    const tips = ''
+    let tips = ''
     // const windowMs = 1 * 60 * 1000 // 1 minute
     // const maxRequests = 5
     const key = `gpt_${req.ip}`
@@ -41,13 +41,14 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     // 服务器昂贵,接口昂贵,但网站免费！！你的捐款是我坚持下去的动力！git
     // * 国内稳定GPT4 一(广告)：[ChatAI中文](https://srv.aiflarepro.com/#/?cid=4111)
     // * 国内免费GPT4 二(广告)：[YMI_AI](http://yk.x-code.fun)
-    //     if (requests[key].length % 3 === 0) {
-    //       tips = `\n_______________________\n
-    // 网站永久免费，无法访问请访问 [http://w9.xjai.cc](http://w9.xjai.cc)、 [http://w10.xjai.cc](http://w10.xjai.cc)、 [http://w11.xjai.cc](http://w11.xjai.cc)...以此类推
-    //       `
-    //     }
-    //     else {
-    //       tips = `\n_______________________\n
+    if (requests[key].length % 3 === 0) {
+          tips = `\n_______________________\n
+          // * 国内稳定GPT4 一(广告)：[薏米AI](https://ymiai.top/?channel=KY)
+          // * 国内免费GPT4 二(广告)：[ChatAI](https://srv.aiflarepro.com/#/?cid=4111)
+          `
+        }
+        else {
+          tips = `\n_______________________\n
 
     // * chatgpt视频教程：[点击观看](https://www.bilibili.com/video/BV1ug4y117iK/?share_source=copy_web&vd_source=7030318409433afd688a7e764aa205f8)`
     //     }
