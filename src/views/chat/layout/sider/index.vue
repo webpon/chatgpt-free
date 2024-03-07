@@ -103,7 +103,7 @@ watch(
           <img src="https://file.xjai.top/uploads/2024-02-22-1708580090153-41648759-image.png" class="w-[130px]" style="margin: 0">
         </div>
         <div class="flex justify-center items-center px-4 space-x-4">
-          <span class="text-xl text-center text-red-500 font-bold">请务必收藏导航页：<a class="underline text-blue-500" href="https://nav.xjai.top">https://nav.xjai.top</a></span><br>
+          <span class="text-xl text-center text-red-500 font-bold">请务必收藏导航页：<a class="underline text-blue-500" href="https://good.xjai.top">https://good.xjai.top</a></span><br>
         </div>
         <div class="flex items-center p-4 space-x-4">
           <div class="flex-1">

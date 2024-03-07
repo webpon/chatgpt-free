@@ -35,9 +35,9 @@ const announcementModal = ref(false)
 
           <h3 class="leading-8 text-xl">
             请务必收藏导航页： <a
-              href="https://nav.xjai.top" class="text-blue-500 underline"
+              href="https://good.xjai.top" class="text-blue-500 underline"
               target="_blank"
-            >https://nav.xjai.top</a>
+            >https://good.xjai.top</a>
           </h3>
         </template>
         <NDivider class="!my-1" />
