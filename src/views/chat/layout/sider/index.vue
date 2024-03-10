@@ -97,10 +97,11 @@ watch(
           <List />
         </div>
         <div class="flex flex-col items-center py-2 px-4 jusi space-x-4">
-          <p class="text-xl font-bold my-2">
-            加入QQ群
-          </p>
-          <img src="https://file.xjai.top/uploads/2024-02-22-1708580090153-41648759-image.png" class="w-[130px]" style="margin: 0">
+          <!-- <p class="text-xl font-bold my-2">
+            赞助
+          </p> -->
+          <!-- <img src="https://file.xjai.top/uploads/2024-02-22-1708580090153-41648759-image.png" class="w-[130px]" style="margin: 0"> -->
+          <img src="https://file.xjai.top/uploads/2024-03-05-1709624710051-19510611-2024-03-05-1709624594831-21220475-image.jpg" class="w-[210px]" style="margin: 0">
         </div>
         <div class="flex justify-center items-center px-4 space-x-4">
           <span class="text-xl text-center text-red-500 font-bold">请务必收藏导航页：<a class="underline text-blue-500" href="https://good.xjai.top">https://good.xjai.top</a></span><br>
