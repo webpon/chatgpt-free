@@ -98,11 +98,11 @@ async function chatReplyProcess(options: RequestOptions) {
   try {
     let options: SendMessageOptions = { timeoutMs }
 
-    // if (apiModel === 'ChatGPTAPI') {
-    //   if (isNotEmptyString(systemMessage))
-    //     options.systemMessage = systemMessage
-    //   options.completionParams = { model, temperature, top_p }
-    // }
+    if (apiModel === 'ChatGPTAPI') {
+      if (isNotEmptyString(systemMessage))
+        options.systemMessage = systemMessage
+      options.completionParams = { model, temperature, top_p }
+    }
 
     if (lastContext != null) {
       if (apiModel === 'ChatGPTAPI')
