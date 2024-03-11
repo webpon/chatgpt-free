@@ -52,6 +52,8 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
       message: prompt,
       lastContext: options,
       process: (chat: ChatMessage) => {
+        console.log(chat.delta);
+        
         if (firstChunk)
           res.write(`${JSON.stringify(chat)}&KFw6loC9Qvy&`)
 
