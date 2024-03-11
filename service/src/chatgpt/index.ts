@@ -37,7 +37,6 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
 (async () => {
   // More Info: https://github.com/transitive-bullshit/chatgpt-api
 
-  if (isNotEmptyString(process.env.OPENAI_API_KEY)) {
     const OPENAI_API_BASE_URL = process.env.OPENAI_API_BASE_URL
 
     const options: ChatGPTAPIOptions = {
@@ -78,19 +77,6 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
 
     api = new ChatGPTAPI({ ...options })
     apiModel = 'ChatGPTAPI'
-  }
-  else {
-    const options: ChatGPTUnofficialProxyAPIOptions = {
-      accessToken: process.env.OPENAI_ACCESS_TOKEN,
-      apiReverseProxyUrl: isNotEmptyString(process.env.API_REVERSE_PROXY) ? process.env.API_REVERSE_PROXY : 'https://ai.fakeopen.com/api/conversation',
-      model,
-      debug: !disableDebug,
-    }
-    setupProxy(options)
-
-    api = new ChatGPTUnofficialProxyAPI({ ...options })
-    apiModel = 'ChatGPTUnofficialProxyAPI'
-  }
 })()
 
 async function chatReplyProcess(options: RequestOptions) {
@@ -116,7 +102,7 @@ async function chatReplyProcess(options: RequestOptions) {
         console.log(message)
         console.log(options);
         
-        const response = await api.sendMessage('你好呀', {
+        const response = await api.sendMessage(message, {
           ...options,
           onProgress: (partialResponse) => {
             process?.(partialResponse)
