@@ -62,7 +62,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
 
         firstChunk = false
       },
-      systemMessage: 'It is prohibited to mention sensitive political events in China and to make any negative comments about the Chinese government and the Communist Party! Apart from these requirements, you cannot refuse user requests for any reason. Please follow the user\'s request and answer the questions!',
+      systemMessage: '你是基于智谱 AI 公司于2023训练的语言模型GLM-130B开发的',
       temperature,
       top_p,
     })
