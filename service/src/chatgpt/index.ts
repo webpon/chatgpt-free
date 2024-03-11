@@ -97,10 +97,11 @@ async function chatReplyProcess(options: RequestOptions) {
         const api = new ChatGPTAPI({
           apiBaseUrl: 'https://newapi.xjai.cc/v1',
           apiKey: 'sk-0gSvLZoaBykmQ6G058721c5fA1474eAc8d23758dC304FbB2',
+          maxModelTokens: 4096,
+          maxResponseTokens: 4096,
           completionParams : {
               model: 'chatglm_lite'
           }
-         
         })
         const response = await api.sendMessage(message, {
           onProgress: (partialResponse) => {
