@@ -116,7 +116,7 @@ async function chatReplyProcess(options: RequestOptions) {
         console.log(message)
         console.log(options);
         
-        const response = await api.sendMessage(message, {
+        const response = await api.sendMessage('你好呀', {
           ...options,
           onProgress: (partialResponse) => {
             process?.(partialResponse)
