@@ -63,10 +63,11 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
       }
     }
     else if (model.toLowerCase().includes('gpt-3.5')) {
-      // if (model.toLowerCase().includes('16k')) {
       options.maxModelTokens = 12288
       options.maxResponseTokens = 4096
-      // }
+    } else if(model.toLowerCase().includes('chatglm_lite')) {
+      options.maxModelTokens = 4096
+      options.maxResponseTokens = 4096
     }
 
 
