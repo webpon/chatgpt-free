@@ -33,7 +33,7 @@ const announcementModal = ref(true)
           </h3>
 
           <h3 class="leading-8 text-small">
-            目前openai账号暴涨几十倍，但目前本站仍提供免费使用，维持现在的用户使用每日需要花上万元购买账号，现存账号转手卖还值6万块但只够维持免费6天不到，可能6天内免费服务就将暂停站长也不准备开展收费服务，
+            目前openai账号暴涨几十倍，但目前本站仍提供免费使用，维持现在的用户使用每日需要花上万元购买账号，现存账号转手卖还值6万块但只够维持免费6天不到，如果没有便宜稳定的购买账号渠道，可能6天内免费服务就将暂停站长也不准备开展收费服务，
             <p style="color:red;">但站长的服务仍在继续，站长将运营导航站，收集一些优质免费稳定的AI网站，有需要的请收藏导航页： <a
               href="https://good.xjai.top" class="text-blue-500 underline"
               target="_blank"
