@@ -12,12 +12,18 @@ const router = express.Router()
 app.use(express.static('public'))
 app.use(express.json({ limit: '10mb' }))
 
-app.all('*', (_, res, next) => {
+app.all('*', (req, res, next) => {
+  // 设置允许跨域的域名,*代表允许任意域名跨域
   res.header('Access-Control-Allow-Origin', '*')
-  res.header('Access-Control-Allow-Headers', 'authorization, Content-Type')
-  res.header('Access-Control-Allow-Methods', '*')
-  next()
-})
+  // 允许的header类型
+  res.header('Access-Control-Allow-Headers', 'content-type')
+  // 跨域允许的请求方式
+  res.header('Access-Control-Allow-Methods', 'DELETE,PUT,POST,GET,OPTIONS')
+  if (req.method.toLowerCase() == 'options')
+    res.send(200) // 让options 尝试请求快速结束
+  else
+    next()
+})/
 
 router.post('/chat-process', [auth, limiter], async (req, res) => {
   res.setHeader('Content-type', 'application/octet-stream')
