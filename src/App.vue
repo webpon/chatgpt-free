@@ -27,7 +27,7 @@ const announcementModal = ref(true)
       @close="announcementModal = false"
     >
       <div class="text-center flex items-center flex-col">
-        <template v-if="true">
+        <template v-if="false">
           <h3 class="text-orange-400 text-3xl my-1 font-bold">
             <span class="text-red-500">重要通知📢</span><br>
           </h3>

@@ -531,7 +531,7 @@ onUnmounted(() => {
                     <div>PS: 所有捐赠将用于维护免费站运行</div>
                     <div><b>收藏导航站不迷路</b>: <a target="_blank" href="https://good.xjai.top/" style="color: #2979ff;">https://good.xjai.top</a></div>
                     <div>禁止发布、传播任何违法、违规内容，使用本网站，视您接受并同意<a target="_blank" style="color:#006eff;" href="https://docs.qq.com/doc/DVFdaY1lvWHFSWU5w">《免责声明》</a></div>
-                    <div><b style="color:red;">📢此处为公告: 目前openai账号暴涨几十倍，但目前本站仍提供免费使用，维持现在的用户使用每日需要花上万元购买账号，现存账号转手卖还值6万块但只够维持免费6天不到，可能6天内免费服务就将暂停，站长也不准备开展收费服务</b></div>
+                    <!-- <div><b style="color:red;">📢此处为公告: 目前openai账号暴涨几十倍，但目前本站仍提供免费使用，维持现在的用户使用每日需要花上万元购买账号，现存账号转手卖还值6万块但只够维持免费6天不到，可能6天内免费服务就将暂停，站长也不准备开展收费服务</b></div> -->
                     <div
                       style="
                           display: flex;
