@@ -42,7 +42,7 @@ const announcementModal = ref(false)
         </template>
         <NDivider class="!my-1" />
         <h3 class="text-xl leading-8">
-          站长推荐<span class="text-red-500">(广告)</span>：<br>
+          站长推荐<span class="text-red-500">(广告) </span>：<br>
           本站点同款<span class="text-red-500">服务器</span>，性价比超高，仅10元一个月，送免费域名、ssl证书<br>
           <a
             href="https://www.rainyun.com/webpon_" class="text-blue-500 underline"
