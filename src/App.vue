@@ -7,7 +7,7 @@ import { useLanguage } from '@/hooks/useLanguage'
 
 const { theme, themeOverrides } = useTheme()
 const { language } = useLanguage()
-const announcementModal = ref(false)
+const announcementModal = ref(true)
 </script>
 
 <template>
@@ -40,6 +40,8 @@ const announcementModal = ref(false)
             >https://good.xjai.top</a></p>
           </h3>
         </template>
+        <h3 class="text-xl leading-8 font-bold">支付宝大红包来了！</h3>
+        <img class="w-[200px]" src="https://file.xjai.top/uploads/2024-04-24-1713980537868-23089102-WechatIMG10833.png"/>
         <NDivider class="!my-1" />
         <h3 class="text-xl leading-8">
           站长推荐<span class="text-red-500">(广告)</span>：<br>
