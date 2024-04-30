@@ -40,9 +40,9 @@ const announcementModal = ref(true)
             >https://good.xjai.top</a></p>
           </h3>
         </template>
-        <h3 class="text-xl leading-8 font-bold">支付宝大红包来了！</h3>
-        <img class="w-[200px]" src="https://file.xjai.top/uploads/2024-04-24-1713980537868-23089102-WechatIMG10833.png"/>
-        <NDivider class="!my-1" />
+        <!-- <h3 class="text-xl leading-8 font-bold">支付宝大红包来了！</h3>
+        <img class="w-[200px]" src="https://file.xjai.top/uploads/2024-04-24-1713980537868-23089102-WechatIMG10833.png"/> -->
+        <!-- <NDivider class="!my-1" /> -->
         <h3 class="text-xl leading-8">
           站长推荐<span class="text-red-500">(广告)</span>：<br>
           本站点同款<span class="text-red-500">服务器</span>，性价比超高，仅10元一个月，送免费域名、ssl证书<br>
