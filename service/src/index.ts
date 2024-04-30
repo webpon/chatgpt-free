@@ -49,7 +49,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     // * 国内免费GPT4 二(广告)：[YMI_AI](http://yk.x-code.fun)
     if (requests[key].length % 5 === 0) {
       tips = `\n_______________________\n
-![赞赏码](62391-31237133-5e4f8https://file.xjai.top/uploads/2023-11-30-17013638ca579fab96c5e8b0d0affc8c99.jpg)
+![赞赏码](https://file.xjai.top/uploads/2023-12-10-1702225292439-50015283-%C3%A5%C2%BE%C2%AE%C3%A4%C2%BF%C2%A1%C3%A5%C2%9B%C2%BE%C3%A7%C2%89%C2%87_20231211002121.jpg)
 **服务器昂贵,接口昂贵,但网站免费！！你的捐款是我坚持下去的动力**！
 * 国内免费GPT4(广告)：[ChatAI](https://srv.aiflarepro.com/#/?cid=4111)
           `
