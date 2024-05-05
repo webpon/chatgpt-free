@@ -35,6 +35,9 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     // const windowMs = 1 * 60 * 1000 // 1 minute
     // const maxRequests = 5
     const key = `gpt_${req.ip}`
+    console.log(req.ip);
+    console.log(prompt);
+    
     // const currentTimestamp = Date.now()
     const requests = app.locals.requests || {}
     requests[key] = requests[key] || {
