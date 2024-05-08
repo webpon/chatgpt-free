@@ -61,8 +61,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
 
     // // * chatgpt视频教程：[点击观看](https://www.bilibili.com/video/BV1ug4y117iK/?share_source=copy_web&vd_source=7030318409433afd688a7e764aa205f8)`
     //     }
-    res.write('号暂时用完了，站长正在处理，期间可使用[动点导航]](https://good.xjai.top)免费ai导航站其他网站')
-    res.end()
+    res.send({ status: 'Fail', message: '网站遭到攻击，站长正在处理，期间可使用[动点导航]](https://good.xjai.top)免费ai导航站其他网站', data: null })
     return
     requests[key].length += 1
     app.locals.requests = requests
