@@ -37,7 +37,6 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
     const key = `gpt_${req.ip}`
     console.log(req.ip);
     console.log(prompt);
-    
     // const currentTimestamp = Date.now()
     const requests = app.locals.requests || {}
     requests[key] = requests[key] || {
@@ -73,7 +72,7 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
 
         else if (chat.detail.choices[0].finish_reason === 'stop')
           res.write(`${tips}&KFw6loC9Qvy&${JSON.stringify(chat)}`)
-
+          
         else res.write(chat.delta || '')
 
         firstChunk = false
