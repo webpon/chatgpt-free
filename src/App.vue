@@ -47,7 +47,7 @@ const announcementModal = ref(true)
             href="https://good.xjai.top" class="text-blue-500 underline"
             target="_blank"
           >https://good.xjai.top</a> 免费ai导航站其他网站</h3> -->
-          <h2 class="text-2xl">本站支持GPT4o模型，免费使用，一分钟可用3次</h2>
+          <h2 class="text-xl font-bold">本站支持<p class="text-red-500">GPT4o</p>模型，免费使用，一分钟可用3次</h2>
          <NDivider class="!my-1" />
         <h3 class="text-xl leading-8">
           站长推荐<span class="text-red-500">(广告)</span>：<br>
