@@ -117,7 +117,7 @@ async function onConversation() {
           const { responseText } = xhr
           // Always process the final line
           // const lastIndex = responseText.lastIndexOf('\n')
-          const arr = responseText.split('&KFw6loC9Qvy&')
+          const arr = responseText.split('&KFw6loC2329Qvy&')
           // let chunk = responseText
           // if (lastIndex !== -1)
           //   chunk = responseText.substring(lastIndex)
@@ -272,7 +272,7 @@ async function onRegenerate(index: number) {
           // let chunk = responseText
           // if (lastIndex !== -1)
           //   chunk = responseText.substring(lastIndex)
-          const arr = responseText.split('&KFw6loC9Qvy&')
+          const arr = responseText.split('&KFw6loC2329Qvy&')
           try {
             if (arr[0] === 'image') {
               updateChat(

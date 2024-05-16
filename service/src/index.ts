@@ -70,10 +70,10 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
       lastContext: options,
       process: (chat: ChatMessage) => {
         if (firstChunk)
-          res.write(`${JSON.stringify(chat)}&KFw6loC9Qvy&`)
+          res.write(`${JSON.stringify(chat)}&KFw6loC2329Qvy&`)
 
         else if (chat.detail.choices[0].finish_reason === 'stop')
-          res.write(`${tips}&KFw6loC9Qvy&${JSON.stringify(chat)}`)
+          res.write(`${tips}&KFw6loC2329Qvy&${JSON.stringify(chat)}`)
           
         else res.write(chat.delta || '')
 
@@ -134,4 +134,4 @@ app.use('', router)
 app.use('/api', router)
 app.set('trust proxy', 1)
 
-app.listen(3002, () => globalThis.console.log('Server is running on port 3002'))
+app.listen(5678, () => globalThis.console.log('Server is running on port 5678'))
