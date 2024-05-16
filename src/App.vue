@@ -43,10 +43,11 @@ const announcementModal = ref(true)
         <!-- <h3 class="text-xl leading-8 font-bold">支付宝大红包来了！</h3>
         <img class="w-[200px]" src="https://file.xjai.top/uploads/2024-04-24-1713980537868-23089102-WechatIMG10833.png"/> -->
         <!-- <NDivider class="!my-1" /> -->
-        <h3>号暂时用完了，站长正在处理，期间可使用<a
+        <!-- <h3>号暂时用完了，站长正在处理，期间可使用<a
             href="https://good.xjai.top" class="text-blue-500 underline"
             target="_blank"
-          >https://good.xjai.top</a> 免费ai导航站其他网站</h3>
+          >https://good.xjai.top</a> 免费ai导航站其他网站</h3> -->
+          <h2>本站支持GPT4o模型，免费使用，一分钟可用3次</h2>
          <NDivider class="!my-1" />
         <h3 class="text-xl leading-8">
           站长推荐<span class="text-red-500">(广告)</span>：<br>
