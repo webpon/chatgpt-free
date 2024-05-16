@@ -68,10 +68,10 @@ router.post('/chat-process', [auth, limiter], async (req, res) => {
       lastContext: options,
       process: (chat: ChatMessage) => {
         if (firstChunk)
-          res.write(`${JSON.stringify(chat)}&KFw6loC2329Qvy&`)
+          res.write(`${JSON.stringify(chat)}&KFw6loC9Qvy&`)
 
         else if (chat.detail.choices[0].finish_reason === 'stop')
-          res.write(`${tips}&KFw6loC2329Qvy&${JSON.stringify(chat)}`)
+          res.write(`${tips}&KFw6loC9Qvy&${JSON.stringify(chat)}`)
           
         else res.write(chat.delta || '')
 
