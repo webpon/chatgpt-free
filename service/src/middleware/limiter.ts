@@ -9,7 +9,7 @@ const maxCount = (isNotEmptyString(MAX_REQUEST_PER_HOUR) && !isNaN(Number(MAX_RE
 
 const limiter = rateLimit({
   windowMs: 1 * 60 * 1000, // Maximum number of accesses within an hour
-  max: 4,
+  max: 2,
   statusCode: 200, // 200 means success，but the message is 'Too many request from this IP in 1 hour'
   message: async (req, res) => {
     res.send({ status: 'Fail', message: '1分钟内太多请求了，请稍后再说', data: null })
