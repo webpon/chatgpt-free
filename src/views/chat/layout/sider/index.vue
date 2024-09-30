@@ -106,7 +106,7 @@ watch(
            <!-- <img src="https://proxy.xjai.cc/img/" alt=""> -->
         </div>
         <div class="flex justify-center items-center px-4 space-x-4">
-          <span class="text-xl text-center text-red-500 font-bold">请务必收藏导航页：<a class="underline text-blue-500" href="https://good.xjai.top">https://good.xjai.top</a></span><br>
+          <span class="text-xl text-center text-red-500 font-bold">请务必收藏导航页：<a class="underline text-blue-500" href="https://free.x-code.fun">https://free.x-code.fun</a></span><br>
         </div>
         <div class="flex items-center p-4 space-x-4">
           <div class="flex-1">

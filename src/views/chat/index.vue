@@ -492,9 +492,51 @@ const footerClass = computed(() => {
     classes = ['sticky', 'left-0', 'bottom-0', 'right-0', 'p-2', 'pr-3', 'overflow-hidden']
   return classes
 })
+const announcementModal = ref(true)
+function checkDomainAndRedirect() {
+    // 当前域名
+    const currentDomain = window.location.hostname;
 
+    // 测试当前域名是否可以正常访问的资源URL
+    const testURL = `${window.location.protocol}//${currentDomain}`;  // 使用 favicon.ico 作为测试文件，或选择其他轻量资源
+
+    // 备用的新域名
+    const fallbackDomain = "https://free.x-code.fun";
+
+    // 定义超时时间为10秒
+    const timeout = 12000;
+
+    // 创建一个 fetch 请求
+    const fetchRequest = fetch(testURL, { method: 'HEAD' })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Response not OK');
+            }
+        });
+
+    // 创建一个超时的 Promise
+    const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('Timeout')), timeout)
+    );
+
+    // 使用 Promise.race 来检测哪个先完成（fetch 或者 timeout）
+    Promise.race([fetchRequest, timeoutPromise])
+        .then(() => {
+            // fetch 成功且没有超时，不做任何处理
+        })
+        .catch(() => {
+          window.$message?.error('检测到当前域名不可用，将跳转导航页！')
+            setTimeout(() => {
+              // 如果 fetch 失败或者超时，跳转到备用域名
+            window.location.href = fallbackDomain;
+            }, 3000);
+        });
+}
+
+// 页面加载完成后执行
 onMounted(() => {
   scrollToBottom()
+  checkDomainAndRedirect()
   if (inputRef.value && !isMobile.value)
     inputRef.value?.focus()
 })
@@ -524,12 +566,12 @@ onUnmounted(() => {
               >
                 <div class="text-center flex items-center flex-col">
                   <h3 class="text-orange-400 text-3xl my-1 font-bold">
-                    <span class="text-red-500 title">本网站永久免费(支持GPT-4o)</span><br>
+                    <span class="text-red-500 title">本网站永久免费(模型是GPT-4o-mini)</span><br>
                   </h3>
                   <div>
                     <div><b style="color:red;">二维码是自愿捐赠！请确保网站您能使用，并且用了很久觉得好再捐赠！网站完全免费，就算不捐，站长也会自费运营网站！网站成本平均一人一月大概3元，只要每月捐三元 网站就能活下去</b></div>
                     <div>PS: 所有捐赠将用于维护免费站运行</div>
-                    <div><b>收藏导航站不迷路</b>: <a target="_blank" href="https://good.xjai.top/" style="color: #2979ff;">https://good.xjai.top</a></div>
+                    <div><b>收藏导航站不迷路</b>: <a target="_blank" href="https://free.x-code.fun/" style="color: #2979ff;">https://free.x-code.fun</a></div>
                     <div>禁止发布、传播任何违法、违规内容，使用本网站，视您接受并同意<a target="_blank" style="color:#006eff;" href="https://docs.qq.com/doc/DVFdaY1lvWHFSWU5w">《免责声明》</a></div>
                     <!-- <div><b style="color:red;">📢此处为公告: 目前openai账号暴涨几十倍，但目前本站仍提供免费使用，维持现在的用户使用每日需要花上万元购买账号，现存账号转手卖还值6万块但只够维持免费6天不到，可能6天内免费服务就将暂停，站长也不准备开展收费服务</b></div> -->
                     <div
@@ -547,9 +589,9 @@ onUnmounted(() => {
                   </div>
                   <!-- <h3 class="leading-8 text-xl">
                     请务必收藏导航页： <a
-                      href="https://good.xjai.top" class="text-blue-500 underline"
+                      href="https://free.x-code.fun" class="text-blue-500 underline"
                       target="_blank"
-                    >https://good.xjai.top</a>
+                    >https://free.x-code.fun</a>
                   </h3> -->
 
                   <!-- <span class="leading-10 text-xl text-red-500 font-bold">请务必收藏导航页：<a class="underline text-blue-500" href="http://a.x-code.fun">https://a.x-code.fun</a></span><br> -->

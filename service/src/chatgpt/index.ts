@@ -74,7 +74,8 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
       options.apiBaseUrl = `${OPENAI_API_BASE_URL}/v1`
 
     setupProxy(options)
-
+    console.log(options);
+    
     api = new ChatGPTAPI({ ...options })
     apiModel = 'ChatGPTAPI'
   }
@@ -112,15 +113,16 @@ async function chatReplyProcess(options: RequestOptions) {
     const retryCount = 6
     for (let i = 0; i < retryCount; i++) {
       try {
+        console.log("===========");
         const response = await api.sendMessage(message, {
           ...options,
           onProgress: (partialResponse) => {
             process?.(partialResponse)
           },
         })
+        
         if (i > 0)
           console.log(`失败重试第${i}次成功了`)
-        return
         return sendResponse({ type: 'Success', data: response })
       }
       catch (error) {
