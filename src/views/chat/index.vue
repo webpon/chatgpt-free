@@ -566,7 +566,7 @@ onUnmounted(() => {
               >
                 <div class="text-center flex items-center flex-col">
                   <h3 class="text-orange-400 text-3xl my-1 font-bold">
-                    <span class="text-red-500 title">本网站永久免费(模型是GPT-4o-mini)</span><br>
+                    <span class="text-red-500 title">本网站永久免费(模型是claude-3-5-sonnet)</span><br>
                   </h3>
                   <div>
                     <div><b style="color:red;">二维码是自愿捐赠！请确保网站您能使用，并且用了很久觉得好再捐赠！网站完全免费，就算不捐，站长也会自费运营网站！网站成本平均一人一月大概3元，只要每月捐三元 网站就能活下去</b></div>
@@ -581,11 +581,10 @@ onUnmounted(() => {
                           justify-content: center;
                     "
                     >
-                      <img class="mr-4" src="https://file.xjai.top/uploads/2023-12-10-1702225292439-50015283-%C3%A5%C2%BE%C2%AE%C3%A4%C2%BF%C2%A1%C3%A5%C2%9B%C2%BE%C3%A7%C2%89%C2%87_20231211002121.jpg" width="200" height="150" alt="kele">
+                      <img class="mr-4" src="https://file.xjai.top/uploads/2024-12-01-12661332-JexdU01K.png" width="200" height="150" alt="kele">
                       <img src="https://file.xjai.top/uploads/2024-03-05-1709624710051-19510611-2024-03-05-1709624594831-21220475-image.jpg" width="200" height="100" alt="kele">
                     </div>
 
-                    <span style="display: none">https://api.binjie.fun/api/generateStream</span>
                   </div>
                   <!-- <h3 class="leading-8 text-xl">
                     请务必收藏导航页： <a
