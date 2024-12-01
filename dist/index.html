@@ -8,88 +8,354 @@
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover" />
 	<title>ChatGPT Web</title>
-  <script type="module" crossorigin src="/assets/index-fd32e608.js"></script>
-  <link rel="stylesheet" href="/assets/index-ce866416.css">
+  <style>
+    #mask {
+      position: fixed;
+      z-index: 10000;
+      display: none;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  
+    /* 定义滚动条宽度 */
+    main ::-webkit-scrollbar {
+      width: 10px !important;
+      /* 垂直滚动条的宽度 */
+    }
+  
+    /* 提示框样式 */
+    .install-popup {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 320px;
+      width: 75%;
+      flex-direction: column;
+      align-items: flex-start;
+      border-radius: .5rem;
+      background: linear-gradient(to right top, #3f4c6b, #606c88);
+      padding: 1rem;
+      box-shadow: 0 87px 78px -39px rgba(0, 0, 0, .4);
+      z-index: 1000;
+      display: none;
+    }
+  
+    .install-popup .container {
+      display: flex;
+      align-items: flex-start;
+    }
+  
+    .install-popup .icon {
+      height: 2rem;
+      width: 2rem;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: .5rem;
+      background-color: #153586;
+      color: #3b82f6;
+    }
+  
+    .install-popup .text {
+      margin-left: .75rem;
+      font-size: .875rem;
+      line-height: 1.25rem;
+      font-weight: 400;
+      color: white;
+    }
+  
+    .install-popup.show {
+      transform: translateY(0);
+      /* 显示时回到原位 */
+      opacity: 1;
+      /* 显示时变为不透明 */
+    }
+  
+    .btn-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 1rem;
+    }
+  
+    .btn-container .install-button {
+      background-color: #284385;
+      font-weight: 600;
+      margin-left: .5rem;
+      padding: .375rem .75rem;
+      border-radius: .5rem;
+      font-size: .75rem;
+      line-height: 1rem;
+      color: #fff;
+      border: 1px solid hsla(0, 0%, 99%, .363);
+      background-color: transparent;
+      cursor: pointer;
+      transition: background-color .3s;
+    }
+  
+    .btn-container .install-button:hover {
+      background-color: #153586;
+    }
+  
+    .btn-container .cancel-button {
+      padding: .375rem .75rem;
+      border-radius: .5rem;
+      font-size: .75rem;
+      line-height: 1rem;
+      color: #fff;
+      border: 1px solid hsla(0, 0%, 99%, .363);
+      background-color: transparent;
+      cursor: pointer;
+      transition: background-color .3s;
+    }
+  
+    .btn-container .install-button:hover {
+      background-color: hsla(0, 0%, 100%, .1);
+    }
+  </style>
+  <script type="module" crossorigin src="/assets/index-5cbc6a68.js"></script>
+  <link rel="stylesheet" href="/assets/index-23485e53.css">
 </head>
 
-<body class="dark:bg-black">
-	<div id="app">
-		<style>
-			.loading-wrap {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				height: 100vh;
-			}
+  <div id="app">
+    <style>
+      .loading-wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+  
+      .balls {
+        width: 4em;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+      }
+  
+      .balls div {
+        width: 0.8em;
+        height: 0.8em;
+        border-radius: 50%;
+        background-color: #4b9e5f;
+      }
+  
+      .balls div:nth-of-type(1) {
+        transform: translateX(-100%);
+        animation: left-swing 0.5s ease-in alternate infinite;
+      }
+  
+      .balls div:nth-of-type(3) {
+        transform: translateX(-95%);
+        animation: right-swing 0.5s ease-out alternate infinite;
+      }
+  
+      @keyframes left-swing {
+  
+        50%,
+        100% {
+          transform: translateX(95%);
+        }
+      }
+  
+      @keyframes right-swing {
+        50% {
+          transform: translateX(-95%);
+        }
+  
+        100% {
+          transform: translateX(100%);
+        }
+      }
+  
+      @media (prefers-color-scheme: dark) {
+        body {
+          background: #121212;
+        }
+      }
+    </style>
+    <div class="loading-wrap">
+      <div class="balls">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <div id="install-popup" class="install-popup">
+    <div class="container">
+      <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <path stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+            d="M20 14V17.5C20 20.5577 16 20.5 12 20.5C8 20.5 4 20.5577 4 17.5V14M12 15L12 3M12 15L8 11M12 15L16 11">
+          </path>
+        </svg></div>
+      <div class="text">
+        <h3>安装到桌面</h3>
+        <p>随时随地更便捷使用AI~</p>
+      </div>
+    </div>
+    <div class="btn-container">
+      <button class="cancel-button">🚫 取消</button>
+      <button class="install-button">🛠️ 安装</button>
+    </div>
+  
+  </div>
+  
+  <script>
+    let deferredPrompt;
 
-			.balls {
-				width: 4em;
-				display: flex;
-				flex-flow: row nowrap;
-				align-items: center;
-				justify-content: space-between;
-			}
+    // 检查 localStorage 是否有取消安装的标志
+    const cancelInstall = localStorage.getItem('cancelInstall');
+    const isInstall = localStorage.getItem('isInstall');
+    const installPopup = document.getElementById('install-popup');
 
-			.balls div {
-				width: 0.8em;
-				height: 0.8em;
-				border-radius: 50%;
-				background-color: #4b9e5f;
-			}
+    const isPwaSupportedOnDesktop = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
 
-			.balls div:nth-of-type(1) {
-				transform: translateX(-100%);
-				animation: left-swing 0.5s ease-in alternate infinite;
-			}
+      // 判断是否为桌面设备
+      const isDesktop =
+        userAgent.includes('windows') ||
+        userAgent.includes('macintosh') ||
+        (userAgent.includes('linux') && !userAgent.includes('mobile'));
 
-			.balls div:nth-of-type(3) {
-				transform: translateX(-95%);
-				animation: right-swing 0.5s ease-out alternate infinite;
-			}
+      // 白名单支持的浏览器：Chrome, Edge, Opera 和 Brave
+      const supportedBrowsers = [
+        'chrome',  // Chrome 支持 PWA 安装
+        'edge',    // Edge 支持 PWA 安装
+        'opera',   // Opera 支持 PWA 安装
+        'brave',   // Brave 支持 PWA 安装
+      ];
 
-			@keyframes left-swing {
+      // 判断是否在白名单中的浏览器
+      const isSupportedBrowser = supportedBrowsers.some(browser => userAgent.includes(browser));
 
-				50%,
-				100% {
-					transform: translateX(95%);
-				}
-			}
+      // 判断是否支持 Service Worker 和 beforeinstallprompt 事件
+      const isPwaSupported = 'serviceWorker' in navigator
 
-			@keyframes right-swing {
-				50% {
-					transform: translateX(-95%);
-				}
+      // 返回：桌面设备，支持白名单浏览器，并且支持 PWA 安装
+      return isDesktop && isPwaSupported && isSupportedBrowser;
+    };
 
-				100% {
-					transform: translateX(100%);
-				}
-			}
 
-			@media (prefers-color-scheme: dark) {
-				body {
-					background: #121212;
-				}
-			}
-		</style>
-		<div class="loading-wrap">
-			<div class="balls">
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-		</div>
-	</div>
+
+    if (isPwaSupportedOnDesktop() && !cancelInstall) {
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        console.log(e)
+        deferredPrompt = e;
+        // 显示提示框
+        installPopup.style.display = 'block';
+      });
+    }
+
+    // 安装按钮点击事件
+    document.querySelector('.install-button').addEventListener('click', () => {
+      installPopup.style.display = 'none'; // 隐藏提示框
+      deferredPrompt.prompt(); // 显示安装提示
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('用户接受了安装');
+          localStorage.setItem('isInstall', 'true'); // 设置取消标志
+          // 示例：记录安装事件
+          const url = window.location.href
+
+          fetch('https://record.xjai.top/record-install', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ url }),
+          })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        } else {
+          console.log('用户拒绝了安装');
+        }
+        deferredPrompt = null;
+      });
+    });
+
+    // 取消按钮点击事件
+    document.querySelector('.cancel-button').addEventListener('click', () => {
+      installPopup.style.display = 'none'; // 隐藏提示框
+      localStorage.setItem('cancelInstall', 'true'); // 设置取消标志
+      // 设置一周后可以重新提醒
+      const oneWeekLater = Date.now() + 7 * 24 * 60 * 60 * 1000;
+      localStorage.setItem('cancelInstallUntil', oneWeekLater);
+    });
+
+    // 检查是否会在一周内禁用安装提示
+    const canShowPrompt = () => {
+      const cancelUntil = localStorage.getItem('cancelInstallUntil');
+      if (cancelUntil && Date.now() < cancelUntil) {
+        return false; // 一周内不再显示
+      }
+      return true; // 可以显示
+    };
+
+    // 在页面加载时判断是否显示安装提示
+    window.onload = () => {
+      if (isPwaSupportedOnDesktop() && canShowPrompt() && !cancelInstall && !isInstall) {
+        installPopup.style.display = 'block'; // 显示提示框
+      }
+    };
+  </script>
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      const hm = document.createElement('script')
+      hm.src = 'https://hm.baidu.com/hm.js?3daa3d397cf95739b014da7888bd582c'
+      const s = document.getElementsByTagName('script')[0]
+      s.parentNode.insertBefore(hm, s)
+    })()
+  </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('DOMContentLoaded', function () {
+        // 注销所有旧的 Service Worker
+        navigator.serviceWorker.getRegistrations().then(function (registrations) {
+          for (let registration of registrations) {
+            registration.unregister().then(function (boolean) {
+              // 如果返回 true，注销成功
+              console.log('ServiceWorker unregistered: ', boolean);
+            });
+          }
+        });
+
+        // 注册新的 Service Worker
+        navigator.serviceWorker.register('/service-worker.js').then(function (registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          const sw = registration.installing || registration.waiting;
+          if (sw) {
+            sw.onstatechange = function () {
+              if (sw.state === 'installed') {
+                console.log('ServiceWorker installed, reload page');
+                window.location.reload();
+              }
+            }
+          }
+          registration.update().then(res => {
+            console.log('ServiceWorker registration update: ', res);
+          });
+          window._SW_ENABLED = true;
+        }, function (err) {
+          console.error('ServiceWorker registration failed: ', err);
+        });
+
+        navigator.serviceWorker.addEventListener('controllerchange', function () {
+          console.log('ServiceWorker controllerchange');
+          window.location.reload(true);
+        });
+      });
+    }
+  </script>
 	
-	<script>
-		var _hmt = _hmt || [];
-		(function () {
-		  const hm = document.createElement('script')
-  hm.src = 'https://hm.baidu.com/hm.js?3daa3d397cf95739b014da7888bd582c'
-  const s = document.getElementsByTagName('script')[0]
-  s.parentNode.insertBefore(hm, s)
-})()
-		</script>
-		
+	
 </body>
 
 </html>

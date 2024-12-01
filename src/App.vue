@@ -59,7 +59,7 @@ const announcementModal = ref(true);
             target="_blank"
           >https://free.x-code.fun</a> 免费ai导航站其他网站</h3> -->
 				<h2 class="text-xl font-bold">
-					本站支持<span class="text-red-500">GPT-4o-mini</span
+					本站已升级为超强<span class="text-red-500">claude-3-5-sonnet</span
 					>模型，永久免费使用
 				</h2>
 				<NDivider class="!my-1" />
